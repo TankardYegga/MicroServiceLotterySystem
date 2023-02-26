@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="interfaces" />
+        <module name="application" />
+        <module name="rpc" />
+        <module name="infrastructure" />
+        <module name="domain" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="application" target="1.8" />
+      <module name="common" target="1.8" />
+      <module name="domain" target="1.8" />
+      <module name="infrastructure" target="1.8" />
+      <module name="interfaces" target="8" />
+      <module name="lottery" target="1.8" />
+      <module name="Lottery" target="1.8" />
+      <module name="lottery-application" target="1.8" />
+      <module name="lottery-common" target="1.8" />
+      <module name="lottery-domain" target="1.8" />
+      <module name="lottery-infrastructure" target="1.8" />
+      <module name="lottery-interfaces" target="8" />
+      <module name="lottery-rpc" target="1.8" />
+      <module name="rpc" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Lottery" options="" />
+      <module name="common" options="-parameters" />
+      <module name="infrastructure" options="-parameters" />
+      <module name="interfaces" options="-parameters" />
+      <module name="lottery-common" options="" />
+      <module name="lottery-infrastructure" options="-parameters" />
+      <module name="lottery-interfaces" options="-parameters" />
+      <module name="lottery-rpc" options="-parameters" />
+      <module name="rpc" options="-parameters" />
+    </option>
+  </component>
+</project>

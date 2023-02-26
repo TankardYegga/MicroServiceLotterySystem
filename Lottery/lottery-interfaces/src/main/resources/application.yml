@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    username: root
+    password: 123
+    url: jdbc:mysql://127.0.0.1:3308/?useUnicode=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath*:/mybatis/mapper/*.xml
+  config-location: classpath:/mybatis/config/mybatis-config.xml
+
+
+# dubbo
+dubbo:
+  application:
+    name: lottery
+    version: 1.0.0
+  registry:
+    address: N/A
+  protocol:
+    name: dubbo
+    port: 20880
+  scan:
+    base-packages: com.example.rpc
