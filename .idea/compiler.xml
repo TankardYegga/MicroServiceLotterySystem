@@ -9,17 +9,18 @@
         <module name="interfaces" />
         <module name="application" />
         <module name="rpc" />
+        <module name="common" />
         <module name="infrastructure" />
         <module name="domain" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="application" target="1.8" />
+      <module name="application" target="8" />
       <module name="common" target="1.8" />
-      <module name="domain" target="1.8" />
+      <module name="domain" target="8" />
       <module name="infrastructure" target="1.8" />
       <module name="interfaces" target="8" />
-      <module name="lottery" target="1.8" />
+      <module name="lottery" target="8" />
       <module name="Lottery" target="1.8" />
       <module name="lottery-application" target="1.8" />
       <module name="lottery-common" target="1.8" />
@@ -33,9 +34,12 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Lottery" options="" />
+      <module name="application" options="-parameters" />
       <module name="common" options="-parameters" />
+      <module name="domain" options="-parameters" />
       <module name="infrastructure" options="-parameters" />
       <module name="interfaces" options="-parameters" />
+      <module name="lottery" options="-parameters" />
       <module name="lottery-common" options="" />
       <module name="lottery-infrastructure" options="-parameters" />
       <module name="lottery-interfaces" options="-parameters" />

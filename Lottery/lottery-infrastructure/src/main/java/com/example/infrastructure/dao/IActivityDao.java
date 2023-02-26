@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Mapper;
  * Time: 8:58 PM
  * Email: levinforward@163.com
  */
-//@Mapper
+@Mapper
 public interface IActivityDao {
 
     void insert(Activity activity);

@@ -24,7 +24,7 @@ public class APiTest {
     @Test
     public void test_insert(){
         Activity activity = new Activity();
-        activity.setActivityId(100003L);
+        activity.setActivityId(100005L);
         activity.setActivityName("测试活动");
         activity.setActivityDesc("仅用于插入数据测试");
         activity.setBeginDateTime(new Date());

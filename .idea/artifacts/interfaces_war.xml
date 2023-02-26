@@ -9,7 +9,7 @@
         <unpackNestedArchives>false</unpackNestedArchives>
       </options>
     </properties>
-    <root id="archive" name="Lottery.war">
+    <root id="archive" name="lottery-interfaces.war">
       <element id="artifact" artifact-name="interfaces:war exploded" />
     </root>
   </artifact>

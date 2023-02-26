@@ -13,6 +13,8 @@
         <option value="$PROJECT_DIR$/lottery-domain/pom.xml" />
         <option value="$PROJECT_DIR$/lottery-application/pom.xml" />
         <option value="$PROJECT_DIR$/lottery-interfaces/pom.xml" />
+        <option value="$PROJECT_DIR$/Lottery/lottery-rpc/pom.xml" />
+        <option value="$PROJECT_DIR$/Lottery/lottery-interfaces/pom.xml" />
       </list>
     </option>
   </component>
