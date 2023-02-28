@@ -7,28 +7,33 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="interfaces" />
-        <module name="rpc" />
         <module name="application" />
+        <module name="rpc" />
+        <module name="common" />
         <module name="infrastructure" />
         <module name="domain" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="application" target="8" />
+      <module name="common" target="1.8" />
       <module name="domain" target="8" />
       <module name="infrastructure" target="1.8" />
       <module name="interfaces" target="8" />
       <module name="Lottery" target="8" />
+      <module name="lottery" target="8" />
       <module name="rpc" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="Lottery" options="" />
+      <module name="Lottery" options="-parameters" />
       <module name="application" options="-parameters" />
+      <module name="common" options="-parameters" />
       <module name="domain" options="-parameters" />
       <module name="infrastructure" options="-parameters" />
       <module name="interfaces" options="-parameters" />
+      <module name="lottery" options="" />
       <module name="rpc" options="-parameters" />
     </option>
   </component>

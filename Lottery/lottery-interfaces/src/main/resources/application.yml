@@ -9,24 +9,24 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 mybatis:
-  mapper-locations: classpath*:/mybatis/mapper/*.xml
+  mapper-locations: classpath:/mybatis/mapper/*.xml
   config-location: classpath:/mybatis/config/mybatis-config.xml
 
 
 # dubbo
-dubbo:
-  application:
-    name: lottery
-    version: 1.0.0
-  registry:
-    address: N/A #直连模式
+#dubbo:
+#  application:
+#    name: lottery
+#    version: 1.0.0
+#  registry:
+#    address: N/A #直连模式
 #    address: multicast://10.192.24.196:1234
 #     address: multicast://127.0.0.1:1234??unicast=false
 
-  protocol:
-    name: dubbo
-    port: 20880
-    host: 10.192.24.196
-  scan:
-    base-packages: org.example.rpc
+#  protocol:
+#    name: dubbo
+#    port: 20880
+#    host: 10.192.24.196
+#  scan:
+#    base-packages: org.example.rpc
 

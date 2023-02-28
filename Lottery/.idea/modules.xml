@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Lottery.iml" filepath="$PROJECT_DIR$/.idea/Lottery.iml" />
       <module fileurl="file://$PROJECT_DIR$/lottery-application/application.iml" filepath="$PROJECT_DIR$/lottery-application/application.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lottery-common/common.iml" filepath="$PROJECT_DIR$/lottery-common/common.iml" />
       <module fileurl="file://$PROJECT_DIR$/lottery-domain/domain.iml" filepath="$PROJECT_DIR$/lottery-domain/domain.iml" />
       <module fileurl="file://$PROJECT_DIR$/lottery-infrastructure/infrastructure.iml" filepath="$PROJECT_DIR$/lottery-infrastructure/infrastructure.iml" />
       <module fileurl="file://$PROJECT_DIR$/lottery-interfaces/interfaces.iml" filepath="$PROJECT_DIR$/lottery-interfaces/interfaces.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lottery.iml" filepath="$PROJECT_DIR$/lottery.iml" />
       <module fileurl="file://$PROJECT_DIR$/lottery-rpc/rpc.iml" filepath="$PROJECT_DIR$/lottery-rpc/rpc.iml" />
     </modules>
   </component>

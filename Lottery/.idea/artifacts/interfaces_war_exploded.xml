@@ -72,7 +72,9 @@
           <element id="archive" name="rpc-1.0-SNAPSHOT.jar">
             <element id="module-output" name="rpc" />
           </element>
-          <element id="library" level="project" name="Maven: org.example:common:1.0-SNAPSHOT" />
+          <element id="archive" name="common-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="common" />
+          </element>
         </element>
       </element>
       <element id="directory" name="META-INF">
