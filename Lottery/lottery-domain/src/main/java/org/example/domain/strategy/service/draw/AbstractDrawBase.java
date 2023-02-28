@@ -115,8 +115,17 @@ public abstract class AbstractDrawBase extends DrawStrategySupport implements ID
         }
 
         Award award = super.queryAwardInfoById(awardId);
+
+        if(null == award){
+            logger.info("奖品信息为空");
+            return new DrawResult(uId, strategyId, Constants.DrawState.FAIL.getCode());
+        }
+
         DrawAwardInfo drawAwardInfo = new DrawAwardInfo(awardId, award.getAwardName());
 
+        System.out.println("log"+logger);
+
+        logger.info("drawAwardInfo:{}", drawAwardInfo);
 
         logger.info("用户抽奖策略完成：[已中奖！], 用户id:{}, 策略id: {}, 奖品id: {}", uId, strategyId, awardId);
 

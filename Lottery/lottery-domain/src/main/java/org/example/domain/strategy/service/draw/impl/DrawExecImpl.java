@@ -5,6 +5,7 @@ import org.example.domain.strategy.service.draw.AbstractDrawBase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.alibaba.fastjson.JSON;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -14,6 +15,7 @@ import java.util.List;
  * @date: 2/27/2023
  * @Copyright： levinforward@163.com
  */
+@Service("drawExec")
 public class DrawExecImpl extends AbstractDrawBase {
 
     private Logger logger = LoggerFactory.getLogger(DrawExecImpl.class);
@@ -32,6 +34,8 @@ public class DrawExecImpl extends AbstractDrawBase {
 
         String awardId = drawAlgorithm.randomDraw(strategyId, excludeAwardIds);
 
+        logger.info("奖品wardId：" + awardId);
+
         if(null == awardId){
             return null;
         }
@@ -39,6 +43,7 @@ public class DrawExecImpl extends AbstractDrawBase {
         //对当前策略、当前奖品进行扣减库存
         boolean isSuccess = strategyRepository.deductStock(strategyId, awardId);
 
+        logger.info("success:" + isSuccess);
         return isSuccess ? awardId: null;
     }
 }

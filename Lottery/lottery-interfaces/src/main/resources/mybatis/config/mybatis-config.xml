@@ -3,8 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-<!--    <typeAliases>-->
-<!--        <package name="com.example.infrastructure.po.Activity"/>-->
-<!--    </typeAliases>-->
+<!--    这个标签是对应实体类的路径-->
+    <typeAliases>
+        <package name="com.example.infrastructure.po.Activity"/>
+    </typeAliases>
 </configuration>
 

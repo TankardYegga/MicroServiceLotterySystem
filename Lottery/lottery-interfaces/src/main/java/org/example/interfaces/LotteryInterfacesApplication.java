@@ -5,11 +5,15 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
 
 @SpringBootApplication
 @EnableDubbo
 @Configurable
-@MapperScan(basePackages = "com.example.infrastructure.dao")
+@MapperScan(basePackages = "org.example.infrastructure.dao")
+@ComponentScan(basePackages = {"org.example.domain.strategy.service.algorithm.impl",
+        "org.example.domain.strategy.service.draw.impl", "org.example.domain.strategy.repository" })
 public class LotteryInterfacesApplication {
 
     public static void main(String[] args) {

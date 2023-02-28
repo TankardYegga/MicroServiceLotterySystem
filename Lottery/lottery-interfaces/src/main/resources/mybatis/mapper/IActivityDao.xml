@@ -4,33 +4,33 @@
 
     <resultMap id="activityMap" type="org.example.infrastructure.po.Activity">
         <id column="id" property="id"/>
-        <result column="activity_id" property="activityId"/>
-        <result column="activity_name" property="activityName"/>
-        <result column="activity_desc" property="activityDesc"/>
-        <result column="begin_date_time" property="beginDateTime"/>
-        <result column="end_date_time" property="endDateTime"/>
-        <result column="stock_count" property="stockCount"/>
-        <result column="take_count" property="takeCount"/>
+        <result column="activityId" property="activityId"/>
+        <result column="activityName" property="activityName"/>
+        <result column="activityDesc" property="activityDesc"/>
+        <result column="beginDateTime" property="beginDateTime"/>
+        <result column="endDateTime" property="endDateTime"/>
+        <result column="stockDount" property="stockCount"/>
+        <result column="takeDount" property="takeCount"/>
         <result column="state" property="state"/>
         <result column="creator" property="creator"/>
-        <result column="create_time" property="createTime"/>
-        <result column="update_time" property="updateTime"/>
+        <result column="createTime" property="createTime"/>
+        <result column="updateTime" property="updateTime"/>
     </resultMap>
 
     <insert id="insert" parameterType="org.example.infrastructure.po.Activity">
         INSERT INTO activity
-        (activity_id, activity_name, activity_desc, begin_date_time, end_date_time,
-         stock_count, take_count, state, creator, create_time, update_time)
+        (activityId, activityName, activityDesc, beginDateTime, endDateTime,
+         stockCount, takeCount, state, creator, createTime, updateTime)
         VALUES
             (#{activityId}, #{activityName}, #{activityDesc}, #{beginDateTime}, #{endDateTime},
              #{stockCount}, #{takeCount}, #{state}, #{creator}, now(), now())
     </insert>
 
     <select id="queryActivityById" parameterType="java.lang.Long" resultMap="activityMap">
-        SELECT activity_id, activity_name, activity_desc, begin_date_time, end_date_time,
-               stock_count, take_count, state, creator, create_time, update_time
+        SELECT activityId, activityName, activityDesc, begindateTime, endDatetime,
+               stockCount, takeCount, state, creator, createTime, updateTime
         FROM activity
-        WHERE activity_id = #{activityId}
+        WHERE activityid = #{activityId}
     </select>
 
 

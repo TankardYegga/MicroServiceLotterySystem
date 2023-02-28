@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Mapper;
  * Time: 11:26 PM
  * Email: levinforward@163.com
  */
-@Mapper
+//@Mapper
 public interface IAwardDao {
 
     Award queryAwardInfo(String awardId);

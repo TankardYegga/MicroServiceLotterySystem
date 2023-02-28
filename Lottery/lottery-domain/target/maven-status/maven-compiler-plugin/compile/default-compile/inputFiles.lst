@@ -1,0 +1,17 @@
+D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-domain\src\main\java\com\example\domain\strategy\service\algorithm\impl\SingleRateRandomDrawAlgorithm.java
+D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-domain\src\main\java\com\example\domain\strategy\repository\IStrategyRepository.java
+D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-domain\src\main\java\com\example\domain\strategy\model\req\DrawReq.java
+D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-domain\src\main\java\com\example\domain\strategy\service\draw\IDrawExec.java
+D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-domain\src\main\java\com\example\domain\strategy\model\aggregates\StrategyRich.java
+D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-domain\src\main\java\com\example\domain\strategy\model\vo\DrawAwardInfo.java
+D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-domain\src\main\java\com\example\domain\strategy\service\draw\AbstractDrawBase.java
+D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-domain\src\main\java\com\example\domain\strategy\model\res\DrawResult.java
+D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-domain\src\main\java\com\example\domain\strategy\service\draw\DrawConfig.java
+D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-domain\src\main\java\com\example\domain\strategy\service\draw\impl\DrawExecImpl.java
+D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-domain\src\main\java\com\example\domain\strategy\repository\iml\StrategyRepository.java
+D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-domain\src\main\java\com\example\domain\strategy\service\algorithm\BaseAlgorithm.java
+D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-domain\src\main\java\package-info.java
+D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-domain\src\main\java\com\example\domain\strategy\service\algorithm\IDrawAlgorithm.java
+D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-domain\src\main\java\com\example\domain\strategy\service\algorithm\impl\EntiretyRateRandomDrawAlgorithm.java
+D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-domain\src\main\java\com\example\domain\strategy\model\vo\AwardRateInfo.java
+D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-domain\src\main\java\com\example\domain\strategy\service\draw\DrawStrategySupport.java

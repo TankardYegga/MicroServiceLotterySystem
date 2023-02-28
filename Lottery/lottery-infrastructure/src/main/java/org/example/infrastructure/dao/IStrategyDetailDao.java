@@ -12,7 +12,7 @@ import java.util.List;
  * Time: 11:43 PM
  * Email: levinforward@163.com
  */
-@Mapper
+//@Mapper
 public interface IStrategyDetailDao {
 
     /**

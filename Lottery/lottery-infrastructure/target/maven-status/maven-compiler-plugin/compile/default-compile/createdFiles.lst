@@ -1,0 +1,8 @@
+com\example\infrastructure\dao\IActivityDao.class
+com\example\infrastructure\po\StrategyDetail.class
+com\example\infrastructure\dao\IAwardDao.class
+com\example\infrastructure\po\Award.class
+com\example\infrastructure\dao\IStrategyDao.class
+com\example\infrastructure\po\Strategy.class
+com\example\infrastructure\dao\IStrategyDetailDao.class
+com\example\infrastructure\po\Activity.class

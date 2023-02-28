@@ -1,0 +1,4 @@
+com\example\rpc\req\ActivityReq.class
+com\example\rpc\IActivityBooth.class
+com\example\rpc\res\ActivityRes.class
+com\example\rpc\dto\ActivityDto.class

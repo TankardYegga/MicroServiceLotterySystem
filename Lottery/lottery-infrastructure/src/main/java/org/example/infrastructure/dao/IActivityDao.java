@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 /**
  * @author levin
  */
-@Mapper
+//@Mapper
 public interface IActivityDao {
 
    void insert(Activity req);

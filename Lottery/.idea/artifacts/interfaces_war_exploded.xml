@@ -75,6 +75,11 @@
           <element id="archive" name="common-1.0-SNAPSHOT.jar">
             <element id="module-output" name="common" />
           </element>
+          <element id="archive" name="domain-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="domain" />
+          </element>
+          <element id="library" level="project" name="Maven: cn.hutool:hutool-all:5.8.12" />
+          <element id="library" level="project" name="Maven: javax.annotation:javax.annotation-api:1.2" />
         </element>
       </element>
       <element id="directory" name="META-INF">

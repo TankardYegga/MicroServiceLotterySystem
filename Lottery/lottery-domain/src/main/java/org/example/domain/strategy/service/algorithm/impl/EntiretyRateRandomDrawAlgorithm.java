@@ -45,7 +45,7 @@ public class EntiretyRateRandomDrawAlgorithm extends BaseAlgorithm {
         SecureRandom random = new SecureRandom();
         int randVal = random.nextInt(100) + 1;
 
-        String awardId = "";
+        String awardId = null;
         int cursorVal = 0;
         for(AwardRateInfo awardRateInfo: differenceAwardRateInfoList){
             int rateVal = awardRateInfo.getAwardRate().divide(differenceDominator, 2, BigDecimal.ROUND_UP).

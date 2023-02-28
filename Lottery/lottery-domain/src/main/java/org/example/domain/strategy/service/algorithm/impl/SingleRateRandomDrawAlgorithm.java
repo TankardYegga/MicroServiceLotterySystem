@@ -28,7 +28,7 @@ public class SingleRateRandomDrawAlgorithm extends BaseAlgorithm {
 
         String awardId = rateTuple[idx];
         if(excludeAwardIds.contains(awardId)) {
-            return "未获奖";
+            return "";
         }
 
         return awardId;

@@ -2,6 +2,7 @@ package org.example.domain.strategy.service.draw;
 
 import org.example.domain.strategy.model.req.DrawReq;
 import org.example.domain.strategy.model.res.DrawResult;
+import org.springframework.stereotype.Service;
 
 /**
  * @description:

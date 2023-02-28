@@ -24,16 +24,16 @@ import java.util.List;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-//@ComponentScan(basePackages = "org.example.domain.strategy.service.algorithm.impl")
 public class DrawAlgorithmTest {
 
-//    @Resource(name = "singleRateRandomDrawAlgorithm")
-//    private IDrawAlgorithm randomDrawAlgorithm;
+    @Resource(name = "singleRateRandomDrawAlgorithm")
+    private IDrawAlgorithm randomDrawAlgorithm;
 
-    @Resource
-    private IDrawAlgorithm singleRateRandomDrawAlgorithm;
+//    @Resource
+//    private IDrawAlgorithm singleRateRandomDrawAlgorithm;
 
-    @Test
+    // 在每个测试方法执行前都会执行一次init函数
+    @Before
     public void init(){
         //奖品信息
         List<AwardRateInfo> strategyList = new ArrayList<>();
@@ -44,7 +44,7 @@ public class DrawAlgorithmTest {
         strategyList.add(new AwardRateInfo("五等奖：充电宝", new BigDecimal("0.35")));
 
         //初始数据
-        singleRateRandomDrawAlgorithm.initRateTuple(10001L, strategyList);
+        randomDrawAlgorithm.initRateTuple(10001L, strategyList);
     }
 
     @Test
@@ -54,7 +54,7 @@ public class DrawAlgorithmTest {
         excludeAwardIds.add("四等奖: AirPods");
 
         for(int i = 0; i < 20; i++){
-            System.out.println("中奖结果：" + singleRateRandomDrawAlgorithm.randomDraw(10001L, excludeAwardIds));
+            System.out.println("中奖结果：" + randomDrawAlgorithm.randomDraw(10001L, excludeAwardIds));
         }
     }
 }

@@ -8,6 +8,7 @@ import org.example.infrastructure.dao.IStrategyDetailDao;
 import org.example.infrastructure.po.Award;
 import org.example.infrastructure.po.Strategy;
 import org.example.infrastructure.po.StrategyDetail;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -19,6 +20,7 @@ import java.util.List;
  * Time: 11:59 PM
  * Email: levinforward@163.com
  */
+@Component
 public class StrategyRepository implements IStrategyRepository {
 
     @Resource

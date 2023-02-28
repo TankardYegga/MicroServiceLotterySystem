@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Mapper;
  * Time: 11:42 PM
  * Email: levinforward@163.com
  */
-@Mapper
+//@Mapper
 public interface IStrategyDao {
 
     Strategy queryStrategy(Long strategyId);

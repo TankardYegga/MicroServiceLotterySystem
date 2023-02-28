@@ -41,7 +41,7 @@ public abstract class BaseAlgorithm implements IDrawAlgorithm{
         int cursorVal = 0;
         for(AwardRateInfo awardRateInfo: awardRateInfoList){
             int rateVal = awardRateInfo.getAwardRate().multiply(new BigDecimal(100)).intValue();
-            for(int i = cursorVal; i <= cursorVal + rateVal; i++){
+            for(int i = cursorVal + 1; i <= cursorVal + rateVal; i++){
                 tupleMap[hashIdx(i)] = awardRateInfo.getAwardId();
             }
             cursorVal += rateVal;
