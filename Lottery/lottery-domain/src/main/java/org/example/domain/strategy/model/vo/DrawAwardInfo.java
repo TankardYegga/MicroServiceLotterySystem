@@ -12,6 +12,10 @@ public class DrawAwardInfo {
 
     private String awardName;
 
+    private Integer awardType;
+
+    private String awardContent;
+
     public DrawAwardInfo() {
     }
 
@@ -34,5 +38,21 @@ public class DrawAwardInfo {
 
     public void setAwardName(String awardName) {
         this.awardName = awardName;
+    }
+
+    public Integer getAwardType() {
+        return awardType;
+    }
+
+    public void setAwardType(Integer awardType) {
+        this.awardType = awardType;
+    }
+
+    public String getAwardContent() {
+        return awardContent;
+    }
+
+    public void setAwardContent(String awardContent) {
+        this.awardContent = awardContent;
     }
 }
