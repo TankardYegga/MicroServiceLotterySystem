@@ -1,4 +1,4 @@
-package org.example.domain.award.repository.impl;
+package org.example.infrastructure.repository;
 
 import org.example.domain.award.repository.IAwardRepository;
 import org.springframework.stereotype.Component;

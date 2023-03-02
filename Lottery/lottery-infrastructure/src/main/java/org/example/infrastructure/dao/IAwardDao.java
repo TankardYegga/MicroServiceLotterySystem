@@ -3,6 +3,8 @@ package org.example.infrastructure.dao;
 import org.example.infrastructure.po.Award;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * Description: Lottery
  * Creator: levin
@@ -14,4 +16,6 @@ import org.apache.ibatis.annotations.Mapper;
 public interface IAwardDao {
 
     Award queryAwardInfo(String awardId);
+
+    void insertList(List<Award> req);
 }

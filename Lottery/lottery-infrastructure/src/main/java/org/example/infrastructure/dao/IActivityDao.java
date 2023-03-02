@@ -1,7 +1,7 @@
 package org.example.infrastructure.dao;
 
+import org.example.domain.activity.model.vo.AlterStateVO;
 import org.example.infrastructure.po.Activity;
-import org.apache.ibatis.annotations.Mapper;
 
 
 /**
@@ -13,4 +13,6 @@ public interface IActivityDao {
    void insert(Activity req);
 
    Activity queryActivityById(Long activityId);
+
+    int alterActivityState(AlterStateVO alterStateVO);
 }

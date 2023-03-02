@@ -17,6 +17,8 @@ public class Strategy {
 
     private Integer strategyMode;
 
+    private String strategyDesc;
+
     private Integer grantType;
 
     private Date grantDate;
@@ -89,5 +91,13 @@ public class Strategy {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public String getStrategyDesc() {
+        return strategyDesc;
+    }
+
+    public void setStrategyDesc(String strategyDesc) {
+        this.strategyDesc = strategyDesc;
     }
 }

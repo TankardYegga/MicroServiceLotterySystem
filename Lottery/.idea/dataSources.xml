@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="lottery@localhost" uuid="49a15dd6-b8d3-46f8-83e3-21f394545b34">
+    <data-source source="LOCAL" name="lottery@localhost" uuid="dc3fcc15-a5d8-48e4-87c5-cd7663aef689">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3308/lottery</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="lottery_01@localhost" uuid="762f2b98-7b06-433c-9362-fa84fc6c16ef">
+    <data-source source="LOCAL" name="lottery_01@localhost" uuid="734ef4a9-2e52-4ae7-96e8-41626cc3b1f2">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3308/lottery_01</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="lottery_02@localhost" uuid="1d811384-005e-4998-8788-32afe6b267a0">
+    <data-source source="LOCAL" name="lottery_02@localhost" uuid="6a05f1aa-456b-4925-a7bb-98dd66e50e39">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>

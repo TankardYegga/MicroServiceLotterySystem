@@ -1,16 +1,22 @@
-package org.example.domain.strategy.repository.iml;
+package org.example.infrastructure.repository;
 
+import cn.hutool.core.bean.BeanUtil;
 import org.example.domain.strategy.model.aggregates.StrategyRich;
+import org.example.domain.strategy.model.vo.AwardBriefVO;
+import org.example.domain.strategy.model.vo.StrategyBriefVO;
+import org.example.domain.strategy.model.vo.StrategyDetailBriefVO;
 import org.example.domain.strategy.repository.IStrategyRepository;
 import org.example.infrastructure.dao.IAwardDao;
 import org.example.infrastructure.dao.IStrategyDao;
 import org.example.infrastructure.dao.IStrategyDetailDao;
 import org.example.infrastructure.po.Award;
+
 import org.example.infrastructure.po.Strategy;
 import org.example.infrastructure.po.StrategyDetail;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -36,12 +42,32 @@ public class StrategyRepository implements IStrategyRepository {
     public StrategyRich queryStrategyRich(Long strategyId) {
         Strategy strategy = strategyDao.queryStrategy(strategyId);
         List<StrategyDetail> strategyDetailList = strategyDetailDao.queryStrategyDetailList(strategyId);
-        return new StrategyRich(strategyId, strategy, strategyDetailList);
+
+        StrategyBriefVO strategyBriefVO = new StrategyBriefVO();
+        BeanUtil.copyProperties(strategy, strategyBriefVO);
+
+        List<StrategyDetailBriefVO> strategyDetailBriefVOList = new ArrayList<>();
+        for(StrategyDetail strategyDetail: strategyDetailList){
+            StrategyDetailBriefVO strategyDetailBriefVO = new StrategyDetailBriefVO();
+            BeanUtil.copyProperties(strategyDetail, strategyDetailBriefVO);
+            strategyDetailBriefVOList.add(strategyDetailBriefVO);
+
+        }
+        return new StrategyRich(strategyId, strategyBriefVO, strategyDetailBriefVOList);
     }
 
     @Override
-    public Award queryAwardInfo(String awardId) {
-        return awardDao.queryAwardInfo(awardId);
+    public AwardBriefVO queryAwardInfo(String awardId) {
+
+        Award award = awardDao.queryAwardInfo(awardId);
+
+        AwardBriefVO awardBriefVO = new AwardBriefVO();
+        awardBriefVO.setAwardId(award.getAwardId());
+        awardBriefVO.setAwardName(award.getAwardName());
+        awardBriefVO.setAwardType(award.getAwardType());
+        awardBriefVO.setAwardContent(award.getAwardContent());
+
+        return awardBriefVO;
     }
 
 

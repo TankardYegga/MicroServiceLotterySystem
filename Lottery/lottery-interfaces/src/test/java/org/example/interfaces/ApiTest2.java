@@ -1,4 +1,4 @@
-package org.example.interfaces.test;
+package org.example.interfaces;
 
 import org.junit.Test;
 

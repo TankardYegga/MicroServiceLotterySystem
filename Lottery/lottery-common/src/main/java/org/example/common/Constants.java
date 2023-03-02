@@ -215,6 +215,54 @@ public class Constants {
         }
     }
 
+    /**
+     * 活动状态：
+     */
+    public enum ActivityState{
+
+        /** 编辑 */
+        EDIT(1, "编辑"),
+
+        ARRAIGNMENT(2, "提审"),
+
+        REVOKE(3, "撤审"),
+
+        PASS(4, "通过"),
+
+        /** 活动运行中 */
+        DOING(5, "运行"),
+
+        REFUSE(6, "拒绝"),
+
+        CLOSE(7, "关闭"),
+
+        OPEN(8, "打开");
+
+        private Integer code;
+        private String info;
+
+        ActivityState(Integer code, String info){
+            this.code = code;
+            this.info = info;
+        }
+
+        public Integer getCode() {
+            return code;
+        }
+
+        public void setCode(Integer code) {
+            this.code = code;
+        }
+
+        public String getInfo() {
+            return info;
+        }
+
+        public void setInfo(String info) {
+            this.info = info;
+        }
+    }
+
     public static void main(String[] args) {
         for(ResponseCode responseCode: ResponseCode.values()){
             System.out.println("[" + responseCode.getCode() + ", " + responseCode.getInfo() + "]");

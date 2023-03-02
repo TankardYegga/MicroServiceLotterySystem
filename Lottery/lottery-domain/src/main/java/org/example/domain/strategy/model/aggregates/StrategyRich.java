@@ -1,7 +1,7 @@
 package org.example.domain.strategy.model.aggregates;
 
-import org.example.infrastructure.po.Strategy;
-import org.example.infrastructure.po.StrategyDetail;
+import org.example.domain.strategy.model.vo.StrategyBriefVO;
+import org.example.domain.strategy.model.vo.StrategyDetailBriefVO;
 
 import java.util.List;
 
@@ -18,16 +18,16 @@ public class StrategyRich {
     private Long strategyId;
 
     //策略配置
-    private Strategy strategy;
+    private StrategyBriefVO strategy;
 
     //策略细节列表
-    private List<StrategyDetail> strategyDetailList;
+    private List<StrategyDetailBriefVO> strategyDetailList;
 
 
     public StrategyRich() {
     }
 
-    public StrategyRich(Long strategyId, Strategy strategy, List<StrategyDetail> strategyDetailList) {
+    public StrategyRich(Long strategyId, StrategyBriefVO strategy, List<StrategyDetailBriefVO> strategyDetailList) {
         this.strategyId = strategyId;
         this.strategy = strategy;
         this.strategyDetailList = strategyDetailList;
@@ -41,19 +41,19 @@ public class StrategyRich {
         this.strategyId = strategyId;
     }
 
-    public Strategy getStrategy() {
+    public StrategyBriefVO getStrategy() {
         return strategy;
     }
 
-    public void setStrategy(Strategy strategy) {
+    public void setStrategy(StrategyBriefVO strategy) {
         this.strategy = strategy;
     }
 
-    public List<StrategyDetail> getStrategyDetailList() {
+    public List<StrategyDetailBriefVO> getStrategyDetailList() {
         return strategyDetailList;
     }
 
-    public void setStrategyDetailList(List<StrategyDetail> strategyDetailList) {
+    public void setStrategyDetailList(List<StrategyDetailBriefVO> strategyDetailList) {
         this.strategyDetailList = strategyDetailList;
     }
 }

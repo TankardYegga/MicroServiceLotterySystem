@@ -18,6 +18,8 @@ public class StrategyDetail {
 
     private String awardId;
 
+    private String awardName;
+
     private Integer awardCount;
 
     private BigDecimal awardRate;
@@ -90,5 +92,13 @@ public class StrategyDetail {
 
     public void setAwardSurplusCount(Integer awardSurplusCount) {
         this.awardSurplusCount = awardSurplusCount;
+    }
+
+    public String getAwardName() {
+        return awardName;
+    }
+
+    public void setAwardName(String awardName) {
+        this.awardName = awardName;
     }
 }

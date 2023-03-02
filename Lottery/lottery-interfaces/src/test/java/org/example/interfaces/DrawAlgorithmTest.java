@@ -1,4 +1,4 @@
-package org.example.interfaces.test;
+package org.example.interfaces;
 
 import org.example.domain.strategy.model.vo.AwardRateInfo;
 import org.example.domain.strategy.service.algorithm.IDrawAlgorithm;

@@ -30,4 +30,6 @@ public interface IStrategyDetailDao {
      * @return boolean 扣减结果
      */
     int deductStock(StrategyDetail strategyDetailReq);
+
+    void insertList(List<StrategyDetail> req);
 }
