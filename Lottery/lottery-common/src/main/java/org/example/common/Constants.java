@@ -263,6 +263,16 @@ public class Constants {
         }
     }
 
+    /**
+     * Ids生成策略的枚举
+     */
+    public enum Ids{
+
+        Snowflake,
+        RandomNumeric,
+        ShortCode;
+    }
+
     public static void main(String[] args) {
         for(ResponseCode responseCode: ResponseCode.values()){
             System.out.println("[" + responseCode.getCode() + ", " + responseCode.getInfo() + "]");

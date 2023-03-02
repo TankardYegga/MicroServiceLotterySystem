@@ -1,4 +1,4 @@
-package org.example.interfaces.test;
+package org.example.interfaces.domain;
 
 
 import com.alibaba.fastjson.JSON;

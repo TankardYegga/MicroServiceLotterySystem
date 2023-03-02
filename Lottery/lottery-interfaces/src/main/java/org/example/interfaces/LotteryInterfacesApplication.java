@@ -17,7 +17,8 @@ import org.springframework.stereotype.Component;
         "org.example.domain.strategy.repository",
         "org.example.domain.award",
         "org.example.domain.activity",
-        "org.example.infrastructure.repository"
+        "org.example.infrastructure.repository",
+        "org.example.domain.support"
 })
 public class LotteryInterfacesApplication {
 
