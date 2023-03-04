@@ -29,7 +29,7 @@ public class SupportTest {
 
     @Test
     public void test_idsGenerator(){
-        Long snowFlakeId = idsGeneratorMap.get(Constants.Ids.Snowflake).nextId();
+        Long snowFlakeId = idsGeneratorMap.get(Constants.Ids.SnowFlake).nextId();
         Long shortCodeId = idsGeneratorMap.get(Constants.Ids.ShortCode).nextId();
         Long randomNumericId = idsGeneratorMap.get(Constants.Ids.RandomNumeric).nextId();
         System.out.println("雪花算法生成的ID：" + snowFlakeId);

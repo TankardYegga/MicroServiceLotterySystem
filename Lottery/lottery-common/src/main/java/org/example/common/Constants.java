@@ -268,7 +268,7 @@ public class Constants {
      */
     public enum Ids{
 
-        Snowflake,
+        SnowFlake,
         RandomNumeric,
         ShortCode;
     }

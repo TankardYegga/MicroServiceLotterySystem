@@ -28,7 +28,7 @@ public class IdContext {
                                                           RandomNumeric randomNumeric){
         Map<Constants.Ids, IIdGenerator> idGeneratorMap = new HashMap<>(8);
         idGeneratorMap.put(Constants.Ids.RandomNumeric, randomNumeric);
-        idGeneratorMap.put(Constants.Ids.Snowflake, snowFlake);
+        idGeneratorMap.put(Constants.Ids.SnowFlake, snowFlake);
         idGeneratorMap.put(Constants.Ids.ShortCode, shortCode);
         return idGeneratorMap;
     }
