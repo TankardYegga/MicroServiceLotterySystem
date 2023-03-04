@@ -1,5 +1,8 @@
 package org.example.domain.activity.service.partake;
 
+import org.example.domain.activity.model.req.PartakeReq;
+import org.example.domain.activity.model.res.PartakeResult;
+
 /**
  * @description:
  * @author： tankardyegga, 微信号:同名
@@ -11,5 +14,5 @@ public interface IActivityPartake {
     /**
      * 活动参与接口
      */
-    void doPartake();
+    PartakeResult doPartake(PartakeReq req);
 }

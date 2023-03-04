@@ -1,10 +1,8 @@
 package org.example.domain.activity.repository;
 
 import org.example.common.Constants;
-import org.example.domain.activity.model.vo.ActivityVO;
-import org.example.domain.activity.model.vo.AwardVO;
-import org.example.domain.activity.model.vo.StrategyDetailVO;
-import org.example.domain.activity.model.vo.StrategyVO;
+import org.example.domain.activity.model.req.PartakeReq;
+import org.example.domain.activity.model.vo.*;
 
 import java.util.List;
 
@@ -47,5 +45,21 @@ public interface IActivityRepository {
      * @param afterState 修改后状态
      * @return: 更新结果
      */
-    boolean alterActivityState(Long activityId, Enum<Constants.ActivityState> beforeState, Enum<Constants.ActivityState> afterState);
+    boolean alterActivityState(Long activityId, Enum<Constants.ActivityState> beforeState,
+                               Enum<Constants.ActivityState> afterState);
+
+
+    /**
+     * 查询用户参与活动的账单信息[用户信息、活动（ID,名字、库存、状态）、日期、策略、个人参与次数]
+     * @param req 用户参与活动请求
+     * @return 用户活动账单信息
+     */
+    ActivityBillVO queryActivityBill(PartakeReq req);
+
+    /**
+     * 扣减活动库存
+     * @param activityId 活动ID
+     * @return 扣减结果
+     */
+    int substractionActivityStock(Long activityId);
 }
