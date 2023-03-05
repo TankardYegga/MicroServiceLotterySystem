@@ -133,8 +133,9 @@ public class ActivityPartakeImpl extends BaseActivityPartake {
                         transactionStatus.setRollbackOnly();
                         logger.error("记录中奖单，个人参与活动抽奖已消耗完！ activityId: {}, uId: {}",
                                 drawOrderVO.getActivityId(), drawOrderVO.getuId());
+                        return Result.buildResult(Constants.ResponseCode.NO_UPDATE);
+
                     }
-                    return Result.buildResult(Constants.ResponseCode.NO_UPDATE);
 
                     // 保存抽奖信息
                     userTakeActivityRepository.saveUserStrategyExport(drawOrderVO);

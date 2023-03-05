@@ -24,4 +24,10 @@
              #{takeCount}, #{state}, #{uuId}, now(), now())
     </insert>
 
+    <update id="lockTackActivity" parameterType="cn.itedus.lottery.infrastructure.po.UserTakeActivity">
+        UPDATE user_take_activity SET state = 1
+        WHERE u_id = #{uId} AND activity_id = #{activityId} AND state = 0
+    </update>
+
+
 </mapper>
