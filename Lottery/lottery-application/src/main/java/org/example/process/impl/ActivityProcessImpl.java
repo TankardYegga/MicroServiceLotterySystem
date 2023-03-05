@@ -14,6 +14,7 @@ import org.example.domain.support.ids.IIdGenerator;
 import org.example.process.IActivityProcess;
 import org.example.process.req.DrawProcessReq;
 import org.example.process.res.DrawProcessResult;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.ConcurrentModificationException;
@@ -25,7 +26,7 @@ import java.util.Map;
  * @date: 3/5/2023
  * @Copyright： levinforward@163.com
  */
-
+@Service
 public class ActivityProcessImpl implements IActivityProcess {
 
     @Resource
