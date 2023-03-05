@@ -1,14 +1,19 @@
 package org.example.infrastructure.repository;
 
+import org.example.common.Constants;
+import org.example.domain.activity.model.vo.DrawOrderVO;
+import org.example.domain.activity.model.vo.UserTakeActivityVO;
 import org.example.domain.activity.repository.IUserTakeActivityRepository;
+import org.example.infrastructure.dao.IUserStrategyExportDao;
 import org.example.infrastructure.dao.IUserTakeActivityCountDao;
 import org.example.infrastructure.dao.IUserTakeActivityDao;
+import org.example.infrastructure.po.UserStrategyExport;
 import org.example.infrastructure.po.UserTakeActivity;
 import org.example.infrastructure.po.UserTakeActivityCount;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-import javax.jws.soap.SOAPBinding;
+import java.lang.invoke.ConstantCallSite;
 import java.util.Date;
 
 /**
@@ -24,6 +29,8 @@ public class UserTakeActivityRepository implements IUserTakeActivityRepository {
     private IUserTakeActivityCountDao userTakeActivityCountDao;
     @Resource
     private IUserTakeActivityDao userTakeActivityDao;
+    @Resource
+    private IUserStrategyExportDao userStrategyExportDao;
 
     @Override
     public int substractionLeftCount(Long activityId, String activityName, Integer takeCount, Integer userTakeLeftCount, String uId, Date partakeDate) {
@@ -63,13 +70,68 @@ public class UserTakeActivityRepository implements IUserTakeActivityRepository {
         if(null == userTakeLeftCount){
             userTakeActivity.setTakeCount(1);
         }else{
-            userTakeActivity.setTakeCount(takeCount - userTakeLeftCount);
+            userTakeActivity.setTakeCount(takeCount - userTakeLeftCount + 1);
         }
+
+        userTakeActivity.setState(Constants.TakeState.NO_USED.getCode());
 
         // 给该对象手动设置不可重复键
         String uUId = activityId + "_" + uId + "_" + userTakeActivity.getTakeCount();
         userTakeActivity.setUuId(uUId);
 
         userTakeActivityDao.insert(userTakeActivity);
+    }
+
+    @Override
+    public int lockTackActivity(String uId, Long activityId, Long takeId) {
+        // 创建一个 用户领取活动 的对象
+        // 然后由对应的Dao来锁定活动中奖单
+        UserTakeActivity userTakeActivity = new UserTakeActivity();
+        userTakeActivity.setTakeId(takeId);
+        userTakeActivity.setUuId(uId);
+        userTakeActivity.setActivityId(activityId);
+        return userTakeActivityDao.lockTackActivity(userTakeActivity);
+    }
+
+    @Override
+    public void saveUserStrategyExport(DrawOrderVO drawOrderVO) {
+        UserStrategyExport userStrategyExport = new UserStrategyExport();
+        userStrategyExport.setuId(drawOrderVO.getuId());
+        userStrategyExport.setActivityId(drawOrderVO.getActivityId());
+        userStrategyExport.setOrderId(drawOrderVO.getOrderId());
+        userStrategyExport.setStrategyId(drawOrderVO.getStrategyId());
+        userStrategyExport.setStrategyMode(drawOrderVO.getStrategyMode());
+        userStrategyExport.setGrantType(drawOrderVO.getGrantType());
+        userStrategyExport.setGrantDate(drawOrderVO.getGrantDate());
+        userStrategyExport.setGrantState(drawOrderVO.getGrantState());
+        userStrategyExport.setAwardId(drawOrderVO.getAwardId());
+        userStrategyExport.setAwardType(drawOrderVO.getAwardType());
+        userStrategyExport.setAwardName(drawOrderVO.getAwardName());
+        userStrategyExport.setAwardContent(drawOrderVO.getAwardContent());
+        userStrategyExport.setUuId(String.valueOf(drawOrderVO.getOrderId()));
+
+        userStrategyExportDao.insert(userStrategyExport);
+
+    }
+
+    @Override
+    public UserTakeActivityVO queryNoConsumedTakeActivityOrder(Long activityId, String uId) {
+        UserTakeActivity userTakeActivity = new UserTakeActivity();
+        userTakeActivity.setuId(uId);
+        userTakeActivity.setActivityId(activityId);
+        UserTakeActivity noConsumedUserTakeActivityOrder = userTakeActivityDao.queryNoConsumedTakeActivityOrder(userTakeActivity);
+
+        //如何没有查到领取单，直接返回null
+        if(null == noConsumedUserTakeActivityOrder){
+            return null;
+        }
+
+        UserTakeActivityVO userTakeActivityVO = new UserTakeActivityVO();
+        userTakeActivityVO.setActivityId(noConsumedUserTakeActivityOrder.getActivityId());
+        userTakeActivityVO.setTakeId(noConsumedUserTakeActivityOrder.getTakeId());
+        userTakeActivityVO.setStrategyId(noConsumedUserTakeActivityOrder.getStrategyId());
+        userTakeActivityVO.setState(noConsumedUserTakeActivityOrder.getState());
+
+        return userTakeActivityVO;
     }
 }

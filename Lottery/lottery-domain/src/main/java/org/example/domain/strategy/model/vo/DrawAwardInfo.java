@@ -1,5 +1,7 @@
 package org.example.domain.strategy.model.vo;
 
+import java.util.Date;
+
 /**
  * @description:
  * @author： tankardyegga, 微信号:同名
@@ -16,12 +18,22 @@ public class DrawAwardInfo {
 
     private String awardContent;
 
+    private Date awardDate;
+
+    private Integer strategyMode;
+
+    private Integer grantType;
+
+    private Date grantDate;
+
     public DrawAwardInfo() {
     }
 
-    public DrawAwardInfo(String awardId, String awardName) {
+    public DrawAwardInfo(String awardId, Integer awardType, String awardName, String awardContent) {
         this.awardId = awardId;
         this.awardName = awardName;
+        this.awardType = awardType;
+        this.awardContent = awardContent;
     }
 
     public String getAwardId() {
@@ -54,5 +66,37 @@ public class DrawAwardInfo {
 
     public void setAwardContent(String awardContent) {
         this.awardContent = awardContent;
+    }
+
+    public Date getAwardDate() {
+        return awardDate;
+    }
+
+    public void setAwardDate(Date awardDate) {
+        this.awardDate = awardDate;
+    }
+
+    public Integer getStrategyMode() {
+        return strategyMode;
+    }
+
+    public void setStrategyMode(Integer strategyMode) {
+        this.strategyMode = strategyMode;
+    }
+
+    public Integer getGrantType() {
+        return grantType;
+    }
+
+    public void setGrantType(Integer grantType) {
+        this.grantType = grantType;
+    }
+
+    public Date getGrantDate() {
+        return grantDate;
+    }
+
+    public void setGrantDate(Date grantDate) {
+        this.grantDate = grantDate;
     }
 }

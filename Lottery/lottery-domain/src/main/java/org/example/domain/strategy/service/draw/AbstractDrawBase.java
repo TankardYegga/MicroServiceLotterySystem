@@ -1,6 +1,8 @@
 package org.example.domain.strategy.service.draw;
 
 import org.example.common.Constants;
+import org.example.domain.activity.model.vo.StrategyDetailVO;
+import org.example.domain.activity.model.vo.StrategyVO;
 import org.example.domain.strategy.model.aggregates.StrategyRich;
 import org.example.domain.strategy.model.req.DrawReq;
 import org.example.domain.strategy.model.res.DrawResult;
@@ -41,7 +43,7 @@ public abstract class AbstractDrawBase extends DrawStrategySupport implements ID
                 excludeAwardIds);
 
         // 5. 包装抽奖结果
-        return buildDrawResult(req.getuId(), strategtId, awardId);
+        return buildDrawResult(req.getuId(), strategtId, awardId, strategy);
     }
 
     /**
@@ -106,7 +108,7 @@ public abstract class AbstractDrawBase extends DrawStrategySupport implements ID
      * @param  awardId java.lang.String
      * @return com.example.domain.strategy.model.res.DrawResult
      */
-    private DrawResult buildDrawResult(String uId, Long strategyId, String awardId){
+    private DrawResult buildDrawResult(String uId, Long strategyId, String awardId, StrategyBriefVO strategy){
         if(null == awardId){
             logger.info("用户抽奖策略执行完成：[未中奖]，用户id：{}, 策略id: {}", uId, strategyId);
             return new DrawResult(uId, strategyId, Constants.DrawState.FAIL.getCode());
@@ -119,7 +121,11 @@ public abstract class AbstractDrawBase extends DrawStrategySupport implements ID
             return new DrawResult(uId, strategyId, Constants.DrawState.FAIL.getCode());
         }
 
-        DrawAwardInfo drawAwardInfo = new DrawAwardInfo(awardId, award.getAwardName());
+        DrawAwardInfo drawAwardInfo = new DrawAwardInfo(award.getAwardId(), award.getAwardType(),
+                award.getAwardName(), award.getAwardContent());
+        drawAwardInfo.setGrantDate(strategy.getGrantDate());
+        drawAwardInfo.setGrantType(strategy.getGrantType());
+        drawAwardInfo.setGrantDate(strategy.getGrantDate());
 
         System.out.println("log"+logger);
 

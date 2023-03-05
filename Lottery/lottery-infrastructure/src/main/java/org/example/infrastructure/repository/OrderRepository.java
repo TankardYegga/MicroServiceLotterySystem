@@ -1,6 +1,6 @@
 package org.example.infrastructure.repository;
 
-import org.example.domain.award.repository.IAwardRepository;
+import org.example.domain.award.repository.IOrderRepository;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,5 +10,5 @@ import org.springframework.stereotype.Component;
  * @Copyright： levinforward@163.com
  */
 @Component
-public class AwardRepository implements IAwardRepository {
+public class OrderRepository implements IOrderRepository {
 }

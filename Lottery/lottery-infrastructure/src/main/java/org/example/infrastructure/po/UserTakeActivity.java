@@ -30,6 +30,10 @@ public class UserTakeActivity {
 
     private Date updateDate;
 
+    private Long strategyId;
+
+    private Integer state;
+
     public Long getId() {
         return id;
     }
@@ -110,4 +114,19 @@ public class UserTakeActivity {
         this.updateDate = updateDate;
     }
 
+    public Long getStrategyId() {
+        return strategyId;
+    }
+
+    public void setStrategyId(Long strategyId) {
+        this.strategyId = strategyId;
+    }
+
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
+    }
 }

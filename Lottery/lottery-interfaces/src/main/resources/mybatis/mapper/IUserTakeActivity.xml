@@ -18,10 +18,10 @@
     <insert id="insert" parameterType="org.example.infrastructure.po.UserTakeActivity">
         INSERT INTO user_take_activity
         (u_id, take_id, activity_id, activity_name, take_date,
-         take_count, uuid, create_time, update_time)
+         take_count, state, uuid, create_time, update_time)
         VALUES
             (#{uId}, #{takeId}, #{activityId}, #{activityName}, #{takeDate},
-             #{takeCount}, #{uuId}, now(), now())
+             #{takeCount}, #{state}, #{uuId}, now(), now())
     </insert>
 
 </mapper>

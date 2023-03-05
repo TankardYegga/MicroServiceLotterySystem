@@ -1,6 +1,6 @@
 package org.example.domain.award.service.goods;
 
-import org.example.domain.award.repository.IAwardRepository;
+import org.example.domain.award.repository.IOrderRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,7 +17,7 @@ public class DistributionBase {
     protected Logger logger = LoggerFactory.getLogger(DistributionBase.class);
 
     @Resource
-    private IAwardRepository awardRepository;
+    private IOrderRepository awardRepository;
 
     protected void updateUserAwardState(String uId, String orderId, String awardId, Integer awardState, String awardStateInfo){
 

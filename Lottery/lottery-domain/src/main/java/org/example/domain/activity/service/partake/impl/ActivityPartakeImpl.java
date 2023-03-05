@@ -5,6 +5,7 @@ import org.example.common.Constants;
 import org.example.common.Result;
 import org.example.domain.activity.model.req.PartakeReq;
 import org.example.domain.activity.model.vo.ActivityBillVO;
+import org.example.domain.activity.model.vo.DrawOrderVO;
 import org.example.domain.activity.repository.IUserTakeActivityRepository;
 import org.example.domain.activity.service.partake.BaseActivityPartake;
 import org.example.domain.support.ids.IIdGenerator;
@@ -27,9 +28,6 @@ import java.util.Map;
 public class ActivityPartakeImpl extends BaseActivityPartake {
 
     private Logger logger = LoggerFactory.getLogger(ActivityPartakeImpl.class);
-
-    @Resource
-    private Map<Constants.Ids, IIdGenerator> idGeneratorMap;
 
     @Resource
     private IUserTakeActivityRepository userTakeActivityRepository;
@@ -65,7 +63,7 @@ public class ActivityPartakeImpl extends BaseActivityPartake {
         }
 
         //校验个人剩余的可用活动参与次数
-        if(activityBillVO.getUserTakeLeftCount() <= 0){
+        if(null != activityBillVO.getUserTakeLeftCount() && activityBillVO.getUserTakeLeftCount() <= 0){
             logger.warn("用户个人可参与次数不足， userTakeLeftCount:{}", activityBillVO.getUserTakeLeftCount());
             return Result.buildResult(Constants.ResponseCode.UN_ERROR.getCode(), "用户个人可参与次数不足");
         }
@@ -83,7 +81,7 @@ public class ActivityPartakeImpl extends BaseActivityPartake {
     }
 
     @Override
-    protected Result grabActivity(PartakeReq req, ActivityBillVO activityBillVO) {
+    protected Result grabActivity(PartakeReq req, ActivityBillVO activityBillVO, Long takeId) {
         try{
             dbRouter.doRouter(req.getuId());
             return transactionTemplate.execute(transactionStatus -> {
@@ -105,7 +103,6 @@ public class ActivityPartakeImpl extends BaseActivityPartake {
 
                     //另一个sql语句是将当前已经完成的用户参与活动信息写入表中
                     //使用雪花算法生成订单的ID
-                    Long takeId = idGeneratorMap.get(Constants.Ids.SnowFlake).nextId();
                     userTakeActivityRepository.takeActivity(activityBillVO.getActivityId(), activityBillVO.getActivityName(),
                             activityBillVO.getTakeCount(), activityBillVO.getUserTakeLeftCount(),
                             req.getuId(), req.getPartakeDate(), takeId);
@@ -116,6 +113,38 @@ public class ActivityPartakeImpl extends BaseActivityPartake {
                     return Result.buildResult(Constants.ResponseCode.INDEX_DUP);
                 };
 
+                return Result.buildSuccessResult();
+            });
+        }finally {
+            dbRouter.clear();
+        }
+    }
+
+    @Override
+    public Result recordDrawOrder(DrawOrderVO drawOrderVO) {
+        try{
+            dbRouter.doRouter(drawOrderVO.getuId());
+            return transactionTemplate.execute(transactionStatus -> {
+                try{
+                    // 锁定活动领取记录
+                    int lockCount = userTakeActivityRepository.lockTackActivity(drawOrderVO.getuId(),
+                            drawOrderVO.getActivityId(), drawOrderVO.getTakeId());
+                    if(0 == lockCount){
+                        transactionStatus.setRollbackOnly();
+                        logger.error("记录中奖单，个人参与活动抽奖已消耗完！ activityId: {}, uId: {}",
+                                drawOrderVO.getActivityId(), drawOrderVO.getuId());
+                    }
+                    return Result.buildResult(Constants.ResponseCode.NO_UPDATE);
+
+                    // 保存抽奖信息
+                    userTakeActivityRepository.saveUserStrategyExport(drawOrderVO);
+
+                }catch (DuplicateKeyException e){
+                    transactionStatus.setRollbackOnly();
+                    logger.error("记录中奖单，唯一索引冲突 activityId: {}, uId: {}", drawOrderVO.getActivityId(),
+                            drawOrderVO.getOrderId(), e);
+                    return Result.buildResult(Constants.ResponseCode.INDEX_DUP);
+                };
                 return Result.buildSuccessResult();
             });
         }finally {

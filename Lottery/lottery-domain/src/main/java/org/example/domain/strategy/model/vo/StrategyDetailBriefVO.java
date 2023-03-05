@@ -41,6 +41,7 @@ public class StrategyDetailBriefVO {
      */
     private BigDecimal awardRate;
 
+
     public Long getStrategyId() {
         return strategyId;
     }

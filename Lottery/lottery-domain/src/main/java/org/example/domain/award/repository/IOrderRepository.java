@@ -6,5 +6,5 @@ package org.example.domain.award.repository;
  * @date: 2/28/2023
  * @Copyright： levinforward@163.com
  */
-public interface IAwardRepository {
+public interface IOrderRepository {
 }

@@ -1,10 +1,15 @@
 package org.example.domain.activity.service.partake;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.example.common.Constants;
 import org.example.common.Result;
 import org.example.domain.activity.model.req.PartakeReq;
 import org.example.domain.activity.model.res.PartakeResult;
 import org.example.domain.activity.model.vo.ActivityBillVO;
+import org.example.domain.support.ids.IIdGenerator;
+
+import javax.annotation.Resource;
+import java.util.Map;
 
 /**
  * @description: 活动领取的模板抽象类
@@ -13,6 +18,9 @@ import org.example.domain.activity.model.vo.ActivityBillVO;
  * @Copyright： levinforward@163.com
  */
 public abstract class BaseActivityPartake extends ActivityPartakeSupport implements IActivityPartake {
+
+    @Resource
+    private Map<Constants.Ids, IIdGenerator> idGeneratorMap;
 
     @Override
     public PartakeResult doPartake(PartakeReq req) {
@@ -33,7 +41,8 @@ public abstract class BaseActivityPartake extends ActivityPartakeSupport impleme
         }
 
         //领取活动信息[用户把个人信息写到活动表]
-        Result grabResult = this.grabActivity(req, activityBillVO);
+        Long takeId = idGeneratorMap.get(Constants.Ids.SnowFlake).nextId();
+        Result grabResult = this.grabActivity(req, activityBillVO, takeId);
         if(!Constants.ResponseCode.SUCCESS.getCode().equals(grabResult.getCode())){
             return new PartakeResult(grabResult.getCode(), grabResult.getInfo());
         }
@@ -42,6 +51,7 @@ public abstract class BaseActivityPartake extends ActivityPartakeSupport impleme
         PartakeResult partakeResult = new PartakeResult(Constants.ResponseCode.SUCCESS.getCode(),
                 Constants.ResponseCode.SUCCESS.getInfo());
         partakeResult.setStrategyId(partakeResult.getStrategyId());
+        partakeResult.setTakeId(takeId);
         return partakeResult;
     }
 
@@ -49,5 +59,5 @@ public abstract class BaseActivityPartake extends ActivityPartakeSupport impleme
 
     protected abstract Result substractionActivityStock(PartakeReq req);
 
-    protected abstract Result grabActivity(PartakeReq req, ActivityBillVO activityBillVO);
+    protected abstract Result grabActivity(PartakeReq req, ActivityBillVO activityBillVO, Long takeId);
 }
