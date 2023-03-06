@@ -1,5 +1,5 @@
 server:
-  port: 8087
+  port: 8084
 
 spring:
   datasource:
@@ -24,17 +24,17 @@ mini-db-router:
       list: db01,db02
       db00:
         driver-class-name: com.mysql.jdbc.Driver
-        url: jdbc:mysql://127.0.0.1:3308/lottery?useUnicode=true
+        url: jdbc:mysql://127.0.0.1:3308/lottery?useUnicode=true&charcterEncoding=utf8
         username: root
         password: 123
       db01:
         driver-class-name: com.mysql.jdbc.Driver
-        url: jdbc:mysql://127.0.0.1:3308/lottery_01?useUnicode=true
+        url: jdbc:mysql://127.0.0.1:3308/lottery_01?useUnicode=true&charcterEncoding=utf8
         username: root
         password: 123
       db02:
         driver-class-name: com.mysql.jdbc.Driver
-        url: jdbc:mysql://127.0.0.1:3308/lottery_02?useUnicode=true
+        url: jdbc:mysql://127.0.0.1:3308/lottery_02?useUnicode=true&charcterEncoding=utf8
         username: root
         password: 123
 

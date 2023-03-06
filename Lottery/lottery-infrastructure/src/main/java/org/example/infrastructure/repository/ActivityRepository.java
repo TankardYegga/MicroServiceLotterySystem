@@ -8,6 +8,7 @@ import org.example.domain.activity.repository.IActivityRepository;
 import org.example.infrastructure.dao.*;
 import org.example.infrastructure.po.*;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -19,7 +20,8 @@ import java.util.List;
  * @date: 3/1/2023
  * @Copyright： levinforward@163.com
  */
-@Component
+//@Component
+@Repository
 public class ActivityRepository implements IActivityRepository {
 
     @Resource

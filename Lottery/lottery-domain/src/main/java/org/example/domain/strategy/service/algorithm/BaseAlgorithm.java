@@ -1,6 +1,6 @@
 package org.example.domain.strategy.service.algorithm;
 
-import org.example.domain.strategy.model.vo.AwardRateInfo;
+import org.example.domain.strategy.model.vo.AwardRateVO;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -24,12 +24,12 @@ public abstract class BaseAlgorithm implements IDrawAlgorithm{
     protected Map<Long, String[]> rateTupleMap = new ConcurrentHashMap<>();
 
     //一个策略所对应的：该策略可以获得的奖品以及在该策略下不同奖品的获奖概率
-    protected Map<Long, List<AwardRateInfo>> awardRateInfoMap = new ConcurrentHashMap<>();
+    protected Map<Long, List<AwardRateVO>> awardRateInfoMap = new ConcurrentHashMap<>();
 
     @Override
-    public void initRateTuple(Long strategyId, List<AwardRateInfo> awardRateInfoList) {
+    public void initRateTuple(Long strategyId, List<AwardRateVO> awardRateVOList) {
         //保存奖品概率信息
-        awardRateInfoMap.put(strategyId, awardRateInfoList);
+        awardRateInfoMap.put(strategyId, awardRateVOList);
 
         //计算当前策略对应的概率元祖:
         // 如果已经存在，就直接返回；
@@ -39,10 +39,10 @@ public abstract class BaseAlgorithm implements IDrawAlgorithm{
                 k -> new String[RATE_TUPLE_LENGTH]);
 
         int cursorVal = 0;
-        for(AwardRateInfo awardRateInfo: awardRateInfoList){
-            int rateVal = awardRateInfo.getAwardRate().multiply(new BigDecimal(100)).intValue();
+        for(AwardRateVO awardRateVO : awardRateVOList){
+            int rateVal = awardRateVO.getAwardRate().multiply(new BigDecimal(100)).intValue();
             for(int i = cursorVal + 1; i <= cursorVal + rateVal; i++){
-                tupleMap[hashIdx(i)] = awardRateInfo.getAwardId();
+                tupleMap[hashIdx(i)] = awardRateVO.getAwardId();
             }
             cursorVal += rateVal;
         }

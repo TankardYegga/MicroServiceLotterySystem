@@ -8,7 +8,7 @@ import java.util.Date;
  * @date: 2/27/2023
  * @Copyright： levinforward@163.com
  */
-public class DrawAwardInfo {
+public class DrawAwardVO {
 
     private String awardId;
 
@@ -26,10 +26,10 @@ public class DrawAwardInfo {
 
     private Date grantDate;
 
-    public DrawAwardInfo() {
+    public DrawAwardVO() {
     }
 
-    public DrawAwardInfo(String awardId, Integer awardType, String awardName, String awardContent) {
+    public DrawAwardVO(String awardId, Integer awardType, String awardName, String awardContent) {
         this.awardId = awardId;
         this.awardName = awardName;
         this.awardType = awardType;

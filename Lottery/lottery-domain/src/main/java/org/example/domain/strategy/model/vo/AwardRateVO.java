@@ -9,17 +9,17 @@ import java.math.BigDecimal;
  * Time: 11:16 PM
  * Email: levinforward@163.com
  */
-public class AwardRateInfo {
+public class AwardRateVO {
 
     private String awardId;
 
     private BigDecimal awardRate;
 
-    public AwardRateInfo(){
+    public AwardRateVO(){
 
     }
 
-    public AwardRateInfo(String awardId, BigDecimal awardRate){
+    public AwardRateVO(String awardId, BigDecimal awardRate){
         this.awardId = awardId;
         this.awardRate = awardRate;
     }

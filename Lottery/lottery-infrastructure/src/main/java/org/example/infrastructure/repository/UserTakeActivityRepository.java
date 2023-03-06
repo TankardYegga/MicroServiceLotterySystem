@@ -11,6 +11,7 @@ import org.example.infrastructure.po.UserStrategyExport;
 import org.example.infrastructure.po.UserTakeActivity;
 import org.example.infrastructure.po.UserTakeActivityCount;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
 import java.lang.invoke.ConstantCallSite;
@@ -22,7 +23,8 @@ import java.util.Date;
  * @date: 3/4/2023
  * @Copyright： levinforward@163.com
  */
-@Component
+//@Component
+@Repository
 public class UserTakeActivityRepository implements IUserTakeActivityRepository {
 
     @Resource

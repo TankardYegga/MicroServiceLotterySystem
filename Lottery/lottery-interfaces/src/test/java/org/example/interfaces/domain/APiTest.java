@@ -8,7 +8,7 @@ import org.example.domain.award.service.factory.DistributionGoodsFactory;
 import org.example.domain.award.service.goods.IDistributionGoods;
 import org.example.domain.strategy.model.req.DrawReq;
 import org.example.domain.strategy.model.res.DrawResult;
-import org.example.domain.strategy.model.vo.DrawAwardInfo;
+import org.example.domain.strategy.model.vo.DrawAwardVO;
 import org.example.domain.strategy.service.draw.IDrawExec;
 import org.example.infrastructure.dao.IActivityDao;
 import org.example.infrastructure.po.Activity;
@@ -70,27 +70,27 @@ public class APiTest {
             return;
         }
 
-        DrawAwardInfo drawAwardInfo = drawResult.getDrawAwardInfo();
-//        assert drawAwardInfo != null;
-        if(null == drawAwardInfo){
-            System.out.println("drawAwardInfo:" + drawAwardInfo);
-            logger.info("获奖信息为空：" + drawAwardInfo);
+        DrawAwardVO drawAwardVO = drawResult.getDrawAwardInfo();
+//        assert drawAwardVO != null;
+        if(null == drawAwardVO){
+            System.out.println("drawAwardVO:" + drawAwardVO);
+            logger.info("获奖信息为空：" + drawAwardVO);
             return;
         }
 
-        if(null == drawAwardInfo.getAwardType()){
-            System.out.println("drawAwardInfo:" + drawAwardInfo);
-            logger.info("奖品信息为空：" + drawAwardInfo);
+        if(null == drawAwardVO.getAwardType()){
+            System.out.println("drawAwardVO:" + drawAwardVO);
+            logger.info("奖品信息为空：" + drawAwardVO);
             return;
         }
 
-        GoodReq goodsReq = new GoodReq(drawResult.getuId(), "2334434354", drawAwardInfo.getAwardId(), drawAwardInfo.getAwardName(),
-                drawAwardInfo.getAwardContent());
+        GoodReq goodsReq = new GoodReq(drawResult.getuId(), "2334434354", drawAwardVO.getAwardId(), drawAwardVO.getAwardName(),
+                drawAwardVO.getAwardContent());
 
-        System.out.println("awardType is:" + drawAwardInfo.getAwardType());
+        System.out.println("awardType is:" + drawAwardVO.getAwardType());
 
         //根据奖品类型从抽象工厂中获取对应的发奖服务
-        IDistributionGoods distributionGoodsService = distributionGoodsFactory.getDistributionServiceGoods(drawAwardInfo.getAwardType());
+        IDistributionGoods distributionGoodsService = distributionGoodsFactory.getDistributionServiceGoods(drawAwardVO.getAwardType());
         DistributionRes distributionRes = distributionGoodsService.doDistribution(goodsReq);
         logger.info("测试结果：", JSON.toJSONString(distributionRes));
     }

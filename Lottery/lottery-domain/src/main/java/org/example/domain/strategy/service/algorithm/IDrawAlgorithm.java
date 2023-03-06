@@ -1,6 +1,6 @@
 package org.example.domain.strategy.service.algorithm;
 
-import org.example.domain.strategy.model.vo.AwardRateInfo;
+import org.example.domain.strategy.model.vo.AwardRateVO;
 
 import java.util.List;
 
@@ -16,9 +16,9 @@ public interface IDrawAlgorithm {
     /**
      * description: 依据策略和该策略对应的不同奖品的获奖信息，来初始化概率元祖
      * @param strategyId 策略ID
-     * @param awardRateInfoList 奖品概率信息列表
+     * @param awardRateVOList 奖品概率信息列表
      */
-    void initRateTuple(Long strategyId, List<AwardRateInfo> awardRateInfoList);
+    void initRateTuple(Long strategyId, List<AwardRateVO> awardRateVOList);
 
     //判断某个策略对应的数据是否已经进行了初始化
     boolean isExistRateTuple(Long strategyId);
