@@ -341,6 +341,28 @@ public class Constants {
         }
     }
 
+    /**
+     * 全局属性类
+     */
+    public static final class Global{
+        public static final Long TREE_NULL_NODE = 0L;
+    }
+
+    public static final class NodeType{
+        public static final Integer STEM = 1;
+        public static final Integer FRUIT = 2;
+    }
+
+    public static final class RuleLimitType{
+        public static final int EQ = 1;
+        public static final int GT = 2;
+        public static final int LT = 3;
+        public static final int GE = 4;
+        public static final int LE = 5;
+        public static final int ENUM = 6;
+    }
+
+
     public static void main(String[] args) {
         for(ResponseCode responseCode: ResponseCode.values()){
             System.out.println("[" + responseCode.getCode() + ", " + responseCode.getInfo() + "]");

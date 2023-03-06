@@ -1,22 +1,21 @@
 package org.example.process.impl;
 
 import org.example.common.Constants;
-import org.example.common.Result;
 import org.example.domain.activity.model.req.PartakeReq;
 import org.example.domain.activity.model.res.PartakeResult;
 import org.example.domain.activity.model.vo.DrawOrderVO;
 import org.example.domain.activity.service.partake.IActivityPartake;
 import org.example.domain.strategy.model.req.DrawReq;
 import org.example.domain.strategy.model.res.DrawResult;
-import org.example.domain.strategy.model.vo.DrawAwardInfo;
+import org.example.domain.strategy.model.vo.DrawAwardVO;
 import org.example.domain.strategy.service.draw.IDrawExec;
 import org.example.domain.support.ids.IIdGenerator;
 import org.example.process.IActivityProcess;
 import org.example.process.req.DrawProcessReq;
 import org.example.process.res.DrawProcessResult;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.ConcurrentModificationException;
 import java.util.Map;
 
 /**
@@ -25,7 +24,7 @@ import java.util.Map;
  * @date: 3/5/2023
  * @Copyright： levinforward@163.com
  */
-
+@Service
 public class ActivityProcessImpl implements IActivityProcess {
 
     @Resource
@@ -63,11 +62,11 @@ public class ActivityProcessImpl implements IActivityProcess {
             return new DrawProcessResult(Constants.ResponseCode.LOSING_DRAW.getCode(), Constants.ResponseCode.LOSING_DRAW.getInfo());
         }
         // 如果抽奖抽中了，则可以从抽奖结果中分离出抽中的奖品信息
-        DrawAwardInfo drawAwardInfo = drawResult.getDrawAwardInfo();
+        DrawAwardVO drawAwardVO = drawResult.getDrawAwardInfo();
 
         // 3. 抽奖结果存入数据库（落库）
         // 需要构造一个奖品单对象，然后将该奖品单对象存入存入数据库
-        activityPartake.recordDrawOrder(buildDrawOrderVO(req, strategyId, takeId, drawAwardInfo));
+        activityPartake.recordDrawOrder(buildDrawOrderVO(req, strategyId, takeId, drawAwardVO));
 
         // 4. 发送MQ消息，启动发奖流程
 
@@ -75,21 +74,21 @@ public class ActivityProcessImpl implements IActivityProcess {
         return new DrawProcessResult(Constants.ResponseCode.SUCCESS.getCode(), Constants.ResponseCode.SUCCESS.getInfo());
     }
 
-    private DrawOrderVO buildDrawOrderVO(DrawProcessReq req, Long strategyId, Long takeId, DrawAwardInfo drawAwardInfo){
+    private DrawOrderVO buildDrawOrderVO(DrawProcessReq req, Long strategyId, Long takeId, DrawAwardVO drawAwardVO){
         DrawOrderVO drawOrderVO = new DrawOrderVO();
         drawOrderVO.setuId(req.getuId());
         drawOrderVO.setTakeId(takeId);
         drawOrderVO.setActivityId(req.getActivityId());
-        drawOrderVO.setGrantDate(drawAwardInfo.getAwardDate());
-        drawOrderVO.setGrantType(drawAwardInfo.getAwardType());
+        drawOrderVO.setGrantDate(drawAwardVO.getAwardDate());
+        drawOrderVO.setGrantType(drawAwardVO.getAwardType());
         drawOrderVO.setGrantState(Constants.GrantState.INIT.getCode());
         drawOrderVO.setStrategyId(strategyId);
         drawOrderVO.setStrategyMode(drawOrderVO.getStrategyMode());
         drawOrderVO.setOrderId(drawOrderVO.getOrderId());
-        drawOrderVO.setAwardId(drawAwardInfo.getAwardId());
-        drawOrderVO.setAwardName(drawAwardInfo.getAwardName());
-        drawOrderVO.setAwardType(drawAwardInfo.getAwardType());
-        drawOrderVO.setAwardContent(drawAwardInfo.getAwardContent());
+        drawOrderVO.setAwardId(drawAwardVO.getAwardId());
+        drawOrderVO.setAwardName(drawAwardVO.getAwardName());
+        drawOrderVO.setAwardType(drawAwardVO.getAwardType());
+        drawOrderVO.setAwardContent(drawAwardVO.getAwardContent());
         return drawOrderVO;
     }
 }

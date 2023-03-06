@@ -1,6 +1,6 @@
 package org.example.domain.strategy.service.algorithm.impl;
 
-import org.example.domain.strategy.model.vo.AwardRateInfo;
+import org.example.domain.strategy.model.vo.AwardRateVO;
 import org.example.domain.strategy.service.algorithm.BaseAlgorithm;
 import org.springframework.stereotype.Component;
 
@@ -24,19 +24,19 @@ public class EntiretyRateRandomDrawAlgorithm extends BaseAlgorithm {
     public String randomDraw(Long strategyId, List<String> excludeAwardIds) {
 
         //1. 获得现有的可用的奖品抽奖概率的信息
-        List<AwardRateInfo> differenceAwardRateInfoList = new ArrayList<>();
-        List<AwardRateInfo> awardRateInfoList = awardRateInfoMap.get(strategyId);
+        List<AwardRateVO> differenceAwardRateVOList = new ArrayList<>();
+        List<AwardRateVO> awardRateVOList = awardRateInfoMap.get(strategyId);
 
         //需要计算所有可用奖品的抽奖概率之和，用于后续概率的重新计算
         BigDecimal differenceDominator = BigDecimal.ZERO;
 
-        for(AwardRateInfo awardRateInfo: awardRateInfoList){
-            String awardId = awardRateInfo.getAwardId();
+        for(AwardRateVO awardRateVO : awardRateVOList){
+            String awardId = awardRateVO.getAwardId();
             if(excludeAwardIds.contains(awardId)){
                 continue;
             }
-            differenceAwardRateInfoList.add(awardRateInfo);
-            differenceDominator = differenceDominator.add(awardRateInfo.getAwardRate());
+            differenceAwardRateVOList.add(awardRateVO);
+            differenceDominator = differenceDominator.add(awardRateVO.getAwardRate());
         }
 
         // 2. 生成一个1-100的随机数，
@@ -47,11 +47,11 @@ public class EntiretyRateRandomDrawAlgorithm extends BaseAlgorithm {
 
         String awardId = null;
         int cursorVal = 0;
-        for(AwardRateInfo awardRateInfo: differenceAwardRateInfoList){
-            int rateVal = awardRateInfo.getAwardRate().divide(differenceDominator, 2, BigDecimal.ROUND_UP).
+        for(AwardRateVO awardRateVO : differenceAwardRateVOList){
+            int rateVal = awardRateVO.getAwardRate().divide(differenceDominator, 2, BigDecimal.ROUND_UP).
                     multiply(new BigDecimal(100)).intValue();
             if(randVal <= cursorVal + rateVal){
-                awardId = awardRateInfo.getAwardId();
+                awardId = awardRateVO.getAwardId();
             }
             cursorVal += rateVal;
         }

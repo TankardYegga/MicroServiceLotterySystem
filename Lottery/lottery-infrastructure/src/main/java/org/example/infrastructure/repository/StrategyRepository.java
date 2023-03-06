@@ -14,6 +14,7 @@ import org.example.infrastructure.po.Award;
 import org.example.infrastructure.po.Strategy;
 import org.example.infrastructure.po.StrategyDetail;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -26,7 +27,8 @@ import java.util.List;
  * Time: 11:59 PM
  * Email: levinforward@163.com
  */
-@Component
+//@Component
+@Repository
 public class StrategyRepository implements IStrategyRepository {
 
     @Resource

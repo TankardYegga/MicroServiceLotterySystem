@@ -18,8 +18,11 @@ import org.springframework.stereotype.Component;
         "org.example.domain.award",
         "org.example.domain.activity",
         "org.example.infrastructure.repository",
+        "org.example.infrastructure.po",
+        "org.example.process",
         "org.example.domain.support",
-        "org.example.domain.activity.service.partake.impl"
+        "org.example.domain.activity.service.partake.impl",
+        "org.example.domain.rule"
 })
 public class LotteryInterfacesApplication {
 
