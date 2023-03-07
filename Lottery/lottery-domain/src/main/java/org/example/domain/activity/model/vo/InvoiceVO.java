@@ -1,14 +1,14 @@
-package org.example.domain.award.model.req;
+package org.example.domain.activity.model.vo;
 
 import org.example.domain.award.model.vo.ShippingAddress;
 
 /**
- * @description: 奖品的发货信息
+ * @description: 中奖物品发货单，用于发送MQ消息，异步发送奖品给用户
  * @author： tankardyegga, 微信号:同名
- * @date: 2/28/2023
+ * @date: 3/7/2023
  * @Copyright： levinforward@163.com
  */
-public class GoodReq {
+public class InvoiceVO {
 
     private String uId;
 
@@ -18,35 +18,13 @@ public class GoodReq {
 
     private String awardName;
 
-    /** 指的是商品内容是 描述、奖品码还是sku */
-    /** SKU 是 stock keeping unit, 库存量的基本单位，一种单品是一种SKU */
+    private Integer awardType;
+
     private String awardContent;
 
-    /** 实物奖品的四级地址 */
     private ShippingAddress shippingAddress;
 
-    /** 拓展信息 */
     private String extInfo;
-
-    public GoodReq() {
-    }
-
-    public GoodReq(String uId, Long orderId, String awardId, String awardName, String awardContent) {
-        this.uId = uId;
-        this.orderId = orderId;
-        this.awardId = awardId;
-        this.awardName = awardName;
-        this.awardContent = awardContent;
-    }
-
-    public GoodReq(String uId, Long orderId, String awardId, String awardName, String awardContent, ShippingAddress shippingAddress) {
-        this.uId = uId;
-        this.orderId = orderId;
-        this.awardId = awardId;
-        this.awardName = awardName;
-        this.awardContent = awardContent;
-        this.shippingAddress = shippingAddress;
-    }
 
     public String getuId() {
         return uId;
@@ -78,6 +56,14 @@ public class GoodReq {
 
     public void setAwardName(String awardName) {
         this.awardName = awardName;
+    }
+
+    public Integer getAwardType() {
+        return awardType;
+    }
+
+    public void setAwardType(Integer awardType) {
+        this.awardType = awardType;
     }
 
     public String getAwardContent() {

@@ -84,13 +84,13 @@ public class APiTest {
             return;
         }
 
-        GoodReq goodsReq = new GoodReq(drawResult.getuId(), "2334434354", drawAwardVO.getAwardId(), drawAwardVO.getAwardName(),
+        GoodReq goodsReq = new GoodReq(drawResult.getuId(), Long.valueOf("2334434354"), drawAwardVO.getAwardId(), drawAwardVO.getAwardName(),
                 drawAwardVO.getAwardContent());
 
         System.out.println("awardType is:" + drawAwardVO.getAwardType());
 
         //根据奖品类型从抽象工厂中获取对应的发奖服务
-        IDistributionGoods distributionGoodsService = distributionGoodsFactory.getDistributionServiceGoods(drawAwardVO.getAwardType());
+        IDistributionGoods distributionGoodsService = distributionGoodsFactory.getDistributionGoodsService(drawAwardVO.getAwardType());
         DistributionRes distributionRes = distributionGoodsService.doDistribution(goodsReq);
         logger.info("测试结果：", JSON.toJSONString(distributionRes));
     }

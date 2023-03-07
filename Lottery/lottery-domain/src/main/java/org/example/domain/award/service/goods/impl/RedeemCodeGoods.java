@@ -22,7 +22,7 @@ public class RedeemCodeGoods extends DistributionBase implements IDistributionGo
         logger.info("模拟兑换码发放，uId:{}, awardContent:{}", req.getuId(), req.getAwardContent());
 
         super.updateUserAwardState(req.getuId(), req.getOrderId(), req.getAwardId(),
-                Constants.AwardState.SUCCESS.getCode(), Constants.AwardState.SUCCESS.getInfo());
+                Constants.GrantState.COMPLETE.getCode());
 
         return new DistributionRes(req.getuId(), Constants.AwardState.SUCCESS.getCode(), Constants.AwardState.SUCCESS.getInfo());
     }

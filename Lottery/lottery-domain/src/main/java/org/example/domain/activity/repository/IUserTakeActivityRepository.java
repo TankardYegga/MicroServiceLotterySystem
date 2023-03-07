@@ -65,4 +65,5 @@ public interface IUserTakeActivityRepository {
      */
     UserTakeActivityVO queryNoConsumedTakeActivityOrder(Long activityId, String uId);
 
+    void updateInvoiceMqState(String uId, Long orderId, Integer mqState);
 }

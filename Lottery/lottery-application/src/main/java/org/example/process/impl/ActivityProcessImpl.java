@@ -1,9 +1,11 @@
 package org.example.process.impl;
 
 import org.example.common.Constants;
+import org.example.common.Result;
 import org.example.domain.activity.model.req.PartakeReq;
 import org.example.domain.activity.model.res.PartakeResult;
 import org.example.domain.activity.model.vo.DrawOrderVO;
+import org.example.domain.activity.model.vo.InvoiceVO;
 import org.example.domain.activity.service.partake.IActivityPartake;
 import org.example.domain.rule.model.req.DecisionMatterReq;
 import org.example.domain.rule.model.res.EngineResult;
@@ -13,11 +15,15 @@ import org.example.domain.strategy.model.res.DrawResult;
 import org.example.domain.strategy.model.vo.DrawAwardVO;
 import org.example.domain.strategy.service.draw.IDrawExec;
 import org.example.domain.support.ids.IIdGenerator;
+import org.example.mq.KafkaProducer;
 import org.example.process.IActivityProcess;
 import org.example.process.req.DrawProcessReq;
 import org.example.process.res.DrawProcessResult;
 import org.example.process.res.RuleQuantificationCrowdResult;
+import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Service;
+import org.springframework.util.concurrent.ListenableFuture;
+import org.springframework.util.concurrent.ListenableFutureCallback;
 
 import javax.annotation.Resource;
 import java.util.Map;
@@ -42,6 +48,9 @@ public class ActivityProcessImpl implements IActivityProcess {
 
     @Resource(name = "ruleEngineHandler")
     private EngineFilter engineFilter;
+
+    @Resource
+    private KafkaProducer kafkaProducer;
 
     @Override
     public DrawProcessResult doDrawProcess(DrawProcessReq req) {
@@ -73,13 +82,45 @@ public class ActivityProcessImpl implements IActivityProcess {
 
         // 3. 抽奖结果存入数据库（落库）
         // 需要构造一个奖品单对象，然后将该奖品单对象存入存入数据库
-        activityPartake.recordDrawOrder(buildDrawOrderVO(req, strategyId, takeId, drawAwardVO));
+//        activityPartake.recordDrawOrder(buildDrawOrderVO(req, strategyId, takeId, drawAwardVO));
+        DrawOrderVO drawOrderVO = buildDrawOrderVO(req, strategyId, takeId, drawAwardVO);
+        Result recordResult = activityPartake.recordDrawOrder(drawOrderVO);
+        if(!Constants.ResponseCode.SUCCESS.getCode().equals(recordResult.getCode())){
+            return new DrawProcessResult(recordResult.getCode(), recordResult.getInfo());
+        }
 
         // 4. 发送MQ消息，启动发奖流程
+        InvoiceVO invoiceVO = buildInvoiceVO(drawOrderVO);
+        ListenableFuture<SendResult<String, Object>>  future = kafkaProducer.sendLotteryInvoice(invoiceVO);
+        future.addCallback(new ListenableFutureCallback<SendResult<String, Object>>() {
+            @Override
+            public void onFailure(Throwable throwable) {
+
+            }
+
+            @Override
+            public void onSuccess(SendResult<String, Object> stringObjectSendResult) {
+
+            }
+        });
 
         // 5. 返回结果
         return new DrawProcessResult(Constants.ResponseCode.SUCCESS.getCode(),
                 Constants.ResponseCode.SUCCESS.getInfo(), drawAwardVO);
+    }
+
+    private InvoiceVO buildInvoiceVO(DrawOrderVO drawOrderVO){
+        InvoiceVO invoiceVO = new InvoiceVO();
+        invoiceVO.setuId(drawOrderVO.getuId());
+        invoiceVO.setOrderId(drawOrderVO.getOrderId());
+        invoiceVO.setAwardId(drawOrderVO.getAwardId());
+        invoiceVO.setAwardName(drawOrderVO.getAwardName());
+        invoiceVO.setAwardContent(drawOrderVO.getAwardContent());
+        invoiceVO.setAwardType(drawOrderVO.getAwardType());
+        invoiceVO.setShippingAddress(null);
+        invoiceVO.setExtInfo(null);
+
+        return invoiceVO;
     }
 
     @Override

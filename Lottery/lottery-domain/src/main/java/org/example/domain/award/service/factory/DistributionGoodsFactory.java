@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class DistributionGoodsFactory extends GoodsConfig{
 
-    public IDistributionGoods getDistributionServiceGoods(Integer awardType){
+    public IDistributionGoods getDistributionGoodsService(Integer awardType){
         System.out.println("goodsMap:" + goodsMap);
         return goodsMap.get(awardType);
     }

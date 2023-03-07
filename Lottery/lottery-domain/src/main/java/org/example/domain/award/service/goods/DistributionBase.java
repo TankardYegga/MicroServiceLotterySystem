@@ -19,7 +19,7 @@ public class DistributionBase {
     @Resource
     private IOrderRepository awardRepository;
 
-    protected void updateUserAwardState(String uId, String orderId, String awardId, Integer awardState, String awardStateInfo){
-
+    protected void updateUserAwardState(String uId, Long orderId, String awardId, Integer grantState){
+        awardRepository.updateUserAwardState(uId, orderId, awardId, grantState);
     }
 }

@@ -43,6 +43,17 @@ public class UserStrategyExport {
 
     private Date updateTime;
 
+    /** MQ消息发送状态 */
+    private Integer MqState;
+
+    public Integer getMqState() {
+        return MqState;
+    }
+
+    public void setMqState(Integer mqState) {
+        MqState = mqState;
+    }
+
     public Long getId() {
         return id;
     }

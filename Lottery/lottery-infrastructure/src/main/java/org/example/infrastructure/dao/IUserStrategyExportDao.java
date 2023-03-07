@@ -27,6 +27,12 @@ public interface IUserStrategyExportDao {
      */
     @DBRouter
     UserStrategyExport queryUserStrategyExportByUId(String uId);
+
+    @DBRouter
+    void updateInvoiceMqState(String uId, Long orderId, Integer mqState);
+
+    @DBRouter
+    void updateUserAwardState(UserStrategyExport userStrategyExport);
 }
 
 

@@ -7,4 +7,7 @@ package org.example.domain.award.repository;
  * @Copyright： levinforward@163.com
  */
 public interface IOrderRepository {
+
+    void updateUserAwardState(String uId, Long orderId, String awardId, Integer grantState);
+
 }
