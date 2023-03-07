@@ -93,6 +93,13 @@
           <element id="library" level="project" name="Maven: javax.annotation:javax.annotation-api:1.2" />
           <element id="library" level="project" name="Maven: org.mapstruct:mapstruct:1.4.1.Final" />
           <element id="library" level="project" name="Maven: org.mapstruct:mapstruct-processor:1.4.1.Final" />
+          <element id="library" level="project" name="Maven: org.springframework.kafka:spring-kafka:2.5.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-messaging:5.2.10.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.retry:spring-retry:1.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.apache.kafka:kafka-clients:2.5.1" />
+          <element id="library" level="project" name="Maven: com.github.luben:zstd-jni:1.4.4-7" />
+          <element id="library" level="project" name="Maven: org.lz4:lz4-java:1.7.1" />
+          <element id="library" level="project" name="Maven: org.xerial.snappy:snappy-java:1.1.7.3" />
         </element>
       </element>
       <element id="directory" name="META-INF">

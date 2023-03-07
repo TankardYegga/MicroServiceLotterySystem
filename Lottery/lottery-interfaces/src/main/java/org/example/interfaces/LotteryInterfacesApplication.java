@@ -19,6 +19,7 @@ import org.springframework.context.annotation.ComponentScan;
         "org.example.infrastructure.repository",
         "org.example.infrastructure.po",
         "org.example.process",
+        "org.example.mq",
         "org.example.domain.support",
         "org.example.domain.activity.service.partake.impl",
         "org.example.domain.rule",
