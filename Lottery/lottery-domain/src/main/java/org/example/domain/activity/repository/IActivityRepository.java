@@ -61,5 +61,5 @@ public interface IActivityRepository {
      * @param activityId 活动ID
      * @return 扣减结果
      */
-    int substractionActivityStock(Long activityId);
+    int subtractionActivityStock(Long activityId);
 }

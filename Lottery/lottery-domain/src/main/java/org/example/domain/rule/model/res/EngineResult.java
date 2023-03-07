@@ -27,6 +27,7 @@ public class EngineResult {
         this.treeId = treeId;
         this.nodeId = nodeId;
         this.nodeValue = nodeValue;
+        this.isSuccess = true;
     }
 
     public boolean isSuccess() {

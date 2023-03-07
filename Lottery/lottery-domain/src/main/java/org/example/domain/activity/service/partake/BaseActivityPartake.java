@@ -50,7 +50,7 @@ public abstract class BaseActivityPartake extends ActivityPartakeSupport impleme
         //封装结果【返回策略ID,用于继续进行抽奖】
         PartakeResult partakeResult = new PartakeResult(Constants.ResponseCode.SUCCESS.getCode(),
                 Constants.ResponseCode.SUCCESS.getInfo());
-        partakeResult.setStrategyId(partakeResult.getStrategyId());
+        partakeResult.setStrategyId(activityBillVO.getStrategyId());
         partakeResult.setTakeId(takeId);
         return partakeResult;
     }

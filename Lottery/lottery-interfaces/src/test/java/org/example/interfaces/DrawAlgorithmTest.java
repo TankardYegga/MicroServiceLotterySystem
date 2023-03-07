@@ -41,7 +41,7 @@ public class DrawAlgorithmTest {
         strategyList.add(new AwardRateVO("五等奖：充电宝", new BigDecimal("0.35")));
 
         //初始数据
-        randomDrawAlgorithm.initRateTuple(10001L, strategyList);
+        randomDrawAlgorithm.initRateTuple(10001L, strategyMode, strategyList);
     }
 
     @Test

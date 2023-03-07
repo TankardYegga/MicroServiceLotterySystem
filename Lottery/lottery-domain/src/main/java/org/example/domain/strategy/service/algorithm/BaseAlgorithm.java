@@ -1,5 +1,6 @@
 package org.example.domain.strategy.service.algorithm;
 
+import org.example.common.Constants;
 import org.example.domain.strategy.model.vo.AwardRateVO;
 
 import java.math.BigDecimal;
@@ -27,7 +28,18 @@ public abstract class BaseAlgorithm implements IDrawAlgorithm{
     protected Map<Long, List<AwardRateVO>> awardRateInfoMap = new ConcurrentHashMap<>();
 
     @Override
-    public void initRateTuple(Long strategyId, List<AwardRateVO> awardRateVOList) {
+    public synchronized void initRateTuple(Long strategyId, Integer strategyMode, List<AwardRateVO> awardRateVOList) {
+
+        // 前置判断
+        if (isExistRateTuple(strategyId)){
+            return;
+        }
+
+        // 非单项概率，不必存入缓存，因为这部分抽奖算法需要实时处理中奖概率。
+        if (!Constants.StrategyMode.SINGLE.getCode().equals(strategyMode)) {
+            return;
+        }
+
         //保存奖品概率信息
         awardRateInfoMap.put(strategyId, awardRateVOList);
 
@@ -46,6 +58,7 @@ public abstract class BaseAlgorithm implements IDrawAlgorithm{
             }
             cursorVal += rateVal;
         }
+
     }
 
     @Override

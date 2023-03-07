@@ -49,12 +49,13 @@ public class ActivityPartakeImpl extends BaseActivityPartake {
         }
 
         //校验日期信息
-        if(activityBillVO.getBeginDateTime().after(req.getPartakeDate()) ||
-                activityBillVO.getEndDateTime().before(req.getPartakeDate())){
-            logger.warn("时间范围不可用，beginDate:{}, endDate:{}", activityBillVO.getBeginDateTime(),
-                    activityBillVO.getEndDateTime());
-            return Result.buildResult(Constants.ResponseCode.UN_ERROR.getCode(), "时间范围不可用");
-        }
+        // 因为小傅哥的项目一年前创建的，所以开始日期和结束日期基本都是2021年，而这里的req.getPartakeDate()却是now()
+//        if(activityBillVO.getBeginDateTime().after(req.getPartakeDate()) ||
+//                activityBillVO.getEndDateTime().before(req.getPartakeDate())){
+//            logger.warn("时间范围不可用，beginDate:{}, endDate:{}", activityBillVO.getBeginDateTime(),
+//                    activityBillVO.getEndDateTime());
+//            return Result.buildResult(Constants.ResponseCode.UN_ERROR.getCode(), "时间范围不可用");
+//        }
 
         //校验库存信息
         if(activityBillVO.getStockSurplusCount() <= 0){
@@ -72,7 +73,7 @@ public class ActivityPartakeImpl extends BaseActivityPartake {
 
     @Override
     protected Result substractionActivityStock(PartakeReq req) {
-        int count = activityRepository.substractionActivityStock(req.getActivityId());
+        int count = activityRepository.subtractionActivityStock(req.getActivityId());
         if(0 == count){
             logger.warn("扣减库存失败，活动id：{}", req.getActivityId());
             return Result.buildResult(Constants.ResponseCode.NO_UPDATE);

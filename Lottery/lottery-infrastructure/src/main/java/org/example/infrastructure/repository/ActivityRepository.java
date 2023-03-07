@@ -116,7 +116,7 @@ public class ActivityRepository implements IActivityRepository {
     }
 
     @Override
-    public int substractionActivityStock(Long activityId) {
-        return activityDao.substractionActivityStock(activityId);
+    public int subtractionActivityStock(Long activityId) {
+        return activityDao.subtractionActivityStock(activityId);
     }
 }

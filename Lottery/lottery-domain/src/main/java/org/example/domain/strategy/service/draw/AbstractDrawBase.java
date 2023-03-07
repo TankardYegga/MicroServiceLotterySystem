@@ -53,12 +53,6 @@ public abstract class AbstractDrawBase extends DrawStrategySupport implements ID
      */
     private void checkAndInitRateData(Long strategyId, Integer strategyMode, List<StrategyDetailBriefVO> strategyDetailList){
 
-        //如果是非单项概率，也就是说是总体概率
-        //那么因为其概率总是变化的，所以没有必要缓存
-        if(!Constants.StrategyMode.SINGLE.getCode().equals(strategyMode)){
-            return;
-        }
-
         IDrawAlgorithm drawAlgorithm = drawAlgorithmGroup.get(strategyMode);
 
         // 检查该策略对应的概率元素是否已经在内存中
@@ -78,7 +72,7 @@ public abstract class AbstractDrawBase extends DrawStrategySupport implements ID
                     strategyDetailBriefVO.getAwardRate()));
         }
 
-        drawAlgorithm.initRateTuple(strategyId, awardRateVOList);
+        drawAlgorithm.initRateTuple(strategyId, strategyMode, awardRateVOList);
     }
 
     /**
