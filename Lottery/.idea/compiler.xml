@@ -15,7 +15,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="application" target="8" />
+      <module name="application" target="1.8" />
       <module name="common" target="1.8" />
       <module name="domain" target="8" />
       <module name="infrastructure" target="1.8" />

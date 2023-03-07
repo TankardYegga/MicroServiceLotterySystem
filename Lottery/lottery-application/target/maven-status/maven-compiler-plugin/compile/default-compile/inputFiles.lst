@@ -1,1 +1,5 @@
-D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-application\src\main\java\package-info.java
+D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-application\src\main\java\org\example\process\IActivityProcess.java
+D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-application\src\main\java\org\example\process\res\DrawProcessResult.java
+D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-application\src\main\java\org\example\process\impl\ActivityProcessImpl.java
+D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-application\src\main\java\org\example\process\res\RuleQuantificationCrowdResult.java
+D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-application\src\main\java\org\example\process\req\DrawProcessReq.java

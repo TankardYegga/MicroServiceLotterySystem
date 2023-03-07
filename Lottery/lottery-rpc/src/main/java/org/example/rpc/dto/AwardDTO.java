@@ -1,15 +1,19 @@
-package org.example.domain.strategy.model.vo;
+package org.example.rpc.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @description:
  * @author： tankardyegga, 微信号:同名
- * @date: 2/27/2023
+ * @date: 3/7/2023
  * @Copyright： levinforward@163.com
  */
-public class DrawAwardVO {
+public class AwardDTO implements Serializable {
 
+    private String userId;
+
+    private Long activityId;
 
     private String awardId;
 
@@ -19,33 +23,30 @@ public class DrawAwardVO {
 
     private String awardContent;
 
-    private Date awardDate;
-
     private Integer strategyMode;
 
     private Integer grantType;
 
     private Date grantDate;
 
-    private String uId;
-
-    public DrawAwardVO() {
+    public AwardDTO(String userId) {
+        this.userId = userId;
     }
 
-    public DrawAwardVO(String uId, String awardId, Integer awardType, String awardName, String awardContent) {
-        this.uId = uId;
-        this.awardId = awardId;
-        this.awardName = awardName;
-        this.awardType = awardType;
-        this.awardContent = awardContent;
+    public String getUserId() {
+        return userId;
     }
 
-    public String getuId() {
-        return uId;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public void setuId(String uId) {
-        this.uId = uId;
+    public Long getActivityId() {
+        return activityId;
+    }
+
+    public void setActivityId(Long activityId) {
+        this.activityId = activityId;
     }
 
     public String getAwardId() {
@@ -80,14 +81,6 @@ public class DrawAwardVO {
         this.awardContent = awardContent;
     }
 
-    public Date getAwardDate() {
-        return awardDate;
-    }
-
-    public void setAwardDate(Date awardDate) {
-        this.awardDate = awardDate;
-    }
-
     public Integer getStrategyMode() {
         return strategyMode;
     }
@@ -110,5 +103,20 @@ public class DrawAwardVO {
 
     public void setGrantDate(Date grantDate) {
         this.grantDate = grantDate;
+    }
+
+    @Override
+    public String toString() {
+        return "AwardDTO{" +
+                "userId='" + userId + '\'' +
+                ", activityId=" + activityId +
+                ", awardId='" + awardId + '\'' +
+                ", awardName='" + awardName + '\'' +
+                ", awardType=" + awardType +
+                ", awardContent='" + awardContent + '\'' +
+                ", strategyMode=" + strategyMode +
+                ", grantType=" + grantType +
+                ", grantDate=" + grantDate +
+                '}';
     }
 }

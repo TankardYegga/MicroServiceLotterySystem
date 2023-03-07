@@ -119,7 +119,7 @@ public abstract class AbstractDrawBase extends DrawStrategySupport implements ID
             return new DrawResult(uId, strategyId, Constants.DrawState.FAIL.getCode());
         }
 
-        DrawAwardVO drawAwardVO = new DrawAwardVO(award.getAwardId(), award.getAwardType(),
+        DrawAwardVO drawAwardVO = new DrawAwardVO(uId, award.getAwardId(), award.getAwardType(),
                 award.getAwardName(), award.getAwardContent());
         drawAwardVO.setGrantDate(strategy.getGrantDate());
         drawAwardVO.setGrantType(strategy.getGrantType());

@@ -1,0 +1,5 @@
+org\example\process\res\DrawProcessResult.class
+org\example\process\res\RuleQuantificationCrowdResult.class
+org\example\process\IActivityProcess.class
+org\example\process\req\DrawProcessReq.class
+org\example\process\impl\ActivityProcessImpl.class

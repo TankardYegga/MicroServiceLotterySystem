@@ -1,4 +1,9 @@
-D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-rpc\src\main\java\com\example\rpc\res\ActivityRes.java
-D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-rpc\src\main\java\com\example\rpc\req\ActivityReq.java
-D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-rpc\src\main\java\com\example\rpc\dto\ActivityDto.java
-D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-rpc\src\main\java\com\example\rpc\IActivityBooth.java
+D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-rpc\src\main\java\org\example\rpc\dto\ActivityDto.java
+D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-rpc\src\main\java\org\example\rpc\res\DrawRes.java
+D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-rpc\src\main\java\org\example\rpc\ILotteryActivityBooth.java
+D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-rpc\src\main\java\org\example\rpc\req\ActivityReq.java
+D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-rpc\src\main\java\org\example\rpc\res\ActivityRes.java
+D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-rpc\src\main\java\org\example\rpc\dto\AwardDTO.java
+D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-rpc\src\main\java\org\example\rpc\req\QuantificationDrawReq.java
+D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-rpc\src\main\java\org\example\rpc\req\DrawReq.java
+D:\GraduateProject\java_jobs_preparations\lottery_project\lottery-5215-tankard\Lottery\lottery-rpc\src\main\java\org\example\rpc\IActivityBooth.java

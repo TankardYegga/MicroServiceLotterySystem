@@ -1,4 +1,9 @@
-com\example\rpc\req\ActivityReq.class
-com\example\rpc\IActivityBooth.class
-com\example\rpc\res\ActivityRes.class
-com\example\rpc\dto\ActivityDto.class
+org\example\rpc\res\ActivityRes.class
+org\example\rpc\dto\ActivityDto.class
+org\example\rpc\ILotteryActivityBooth.class
+org\example\rpc\IActivityBooth.class
+org\example\rpc\req\ActivityReq.class
+org\example\rpc\dto\AwardDTO.class
+org\example\rpc\req\QuantificationDrawReq.class
+org\example\rpc\req\DrawReq.class
+org\example\rpc\res\DrawRes.class

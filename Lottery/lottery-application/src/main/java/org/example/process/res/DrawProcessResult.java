@@ -22,11 +22,11 @@ public class DrawProcessResult extends Result {
         this.drawAwardVO = drawAwardVO;
     }
 
-    public DrawAwardVO getDrawAwardInfo() {
+    public DrawAwardVO getDrawAwardVO() {
         return drawAwardVO;
     }
 
-    public void setDrawAwardInfo(DrawAwardVO drawAwardVO) {
+    public void setDrawAwardVO(DrawAwardVO drawAwardVO) {
         this.drawAwardVO = drawAwardVO;
     }
 }

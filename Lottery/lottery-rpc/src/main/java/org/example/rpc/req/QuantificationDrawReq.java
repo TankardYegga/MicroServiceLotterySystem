@@ -1,29 +1,21 @@
-package org.example.domain.rule.model.req;
+package org.example.rpc.req;
 
+import java.io.Serializable;
 import java.util.Map;
 
 /**
- * @description: 决策树请求：包含进行决策树判断的必备物料或者说元素
+ * @description: 量化人群的抽奖请求参数（为啥这里不需要实现序列化接口？）
  * @author： tankardyegga, 微信号:同名
- * @date: 3/5/2023
+ * @date: 3/7/2023
  * @Copyright： levinforward@163.com
  */
-public class DecisionMatterReq {
+public class QuantificationDrawReq {
 
     private String uId;
 
     private Long treeId;
 
     private Map<String, Object> valMap;
-
-    public DecisionMatterReq() {
-    }
-
-    public DecisionMatterReq(String uId, Long treeId, Map<String, Object> valMap) {
-        this.uId = uId;
-        this.treeId = treeId;
-        this.valMap = valMap;
-    }
 
     public String getuId() {
         return uId;
