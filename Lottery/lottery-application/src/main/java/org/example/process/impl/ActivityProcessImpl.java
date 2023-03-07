@@ -69,7 +69,7 @@ public class ActivityProcessImpl implements IActivityProcess {
             return new DrawProcessResult(Constants.ResponseCode.LOSING_DRAW.getCode(), Constants.ResponseCode.LOSING_DRAW.getInfo());
         }
         // 如果抽奖抽中了，则可以从抽奖结果中分离出抽中的奖品信息
-        DrawAwardVO drawAwardVO = drawResult.getDrawAwardInfo();
+        DrawAwardVO drawAwardVO = drawResult.getDrawAwardVO();
 
         // 3. 抽奖结果存入数据库（落库）
         // 需要构造一个奖品单对象，然后将该奖品单对象存入存入数据库
@@ -78,7 +78,8 @@ public class ActivityProcessImpl implements IActivityProcess {
         // 4. 发送MQ消息，启动发奖流程
 
         // 5. 返回结果
-        return new DrawProcessResult(Constants.ResponseCode.SUCCESS.getCode(), Constants.ResponseCode.SUCCESS.getInfo());
+        return new DrawProcessResult(Constants.ResponseCode.SUCCESS.getCode(),
+                Constants.ResponseCode.SUCCESS.getInfo(), drawAwardVO);
     }
 
     @Override

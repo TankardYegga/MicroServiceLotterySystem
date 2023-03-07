@@ -1,5 +1,6 @@
 package org.example.interfaces;
 
+import org.example.common.Constants;
 import org.example.domain.strategy.model.vo.AwardRateVO;
 import org.example.domain.strategy.service.algorithm.IDrawAlgorithm;
 import org.junit.Before;
@@ -41,7 +42,7 @@ public class DrawAlgorithmTest {
         strategyList.add(new AwardRateVO("五等奖：充电宝", new BigDecimal("0.35")));
 
         //初始数据
-        randomDrawAlgorithm.initRateTuple(10001L, strategyMode, strategyList);
+        randomDrawAlgorithm.initRateTuple(10001L, Constants.StrategyMode.SINGLE.getCode(), strategyList);
     }
 
     @Test

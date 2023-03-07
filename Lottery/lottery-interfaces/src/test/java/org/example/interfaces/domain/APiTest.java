@@ -70,7 +70,7 @@ public class APiTest {
             return;
         }
 
-        DrawAwardVO drawAwardVO = drawResult.getDrawAwardInfo();
+        DrawAwardVO drawAwardVO = drawResult.getDrawAwardVO();
 //        assert drawAwardVO != null;
         if(null == drawAwardVO){
             System.out.println("drawAwardVO:" + drawAwardVO);

@@ -117,7 +117,7 @@ public abstract class AbstractDrawBase extends DrawStrategySupport implements ID
                 award.getAwardName(), award.getAwardContent());
         drawAwardVO.setGrantDate(strategy.getGrantDate());
         drawAwardVO.setGrantType(strategy.getGrantType());
-        drawAwardVO.setGrantDate(strategy.getGrantDate());
+        drawAwardVO.setStrategyMode(strategy.getStrategyMode());
 
         System.out.println("log"+logger);
 

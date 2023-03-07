@@ -60,11 +60,11 @@ public class DrawResult {
         this.drawState = drawState;
     }
 
-    public DrawAwardVO getDrawAwardInfo() {
+    public DrawAwardVO getDrawAwardVO() {
         return drawAwardVO;
     }
 
-    public void setDrawAwardInfo(DrawAwardVO drawAwardVO) {
+    public void setDrawAwardVO(DrawAwardVO drawAwardVO) {
         this.drawAwardVO = drawAwardVO;
     }
 }
