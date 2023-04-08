@@ -105,9 +105,9 @@ xxl:
     admin:
       addresses: http://127.0.0.1:8000/xxl-job-admin
     executor:
-      address:
+      address: http://127.0.0.1:9998/lottery-job/
       appname: lottery-job
-      ip:
+      ip: 127.0.0.1
       port: 9998
       logpath: D:\AllExploreDownloads\Chrome\xxl-job-2.3.0\xxl-job-2.3.0\xxl-job-log
       logretentiondays: 50
