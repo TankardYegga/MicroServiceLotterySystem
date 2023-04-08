@@ -103,7 +103,7 @@ dubbo:
 xxl:
   job:
     admin:
-      addresses: http://127.0.0.1:7397/xxl-job-admin
+      addresses: http://127.0.0.1:8000/xxl-job-admin
     executor:
       address:
       appname: lottery-job
