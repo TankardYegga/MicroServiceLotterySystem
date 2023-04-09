@@ -46,6 +46,7 @@ public class LotteryXxlJobConfig {
     @Bean
     public XxlJobSpringExecutor xxlJobExecutor() {
         logger.info(">>>>>>>>>>> xxl-job config init.");
+        logger.info("只是测试一下代码是否走到这里了");
 
         XxlJobSpringExecutor xxlJobSpringExecutor = new XxlJobSpringExecutor();
         xxlJobSpringExecutor.setAdminAddresses(adminAddresses);
