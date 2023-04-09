@@ -110,7 +110,7 @@ xxl:
       appname: lottery-job
       ip:
       port: 9998
-      logpath: /Users/fuzhengwei/itstack/data/applogs/xxl-job/jobhandler
+      logpath: D:\appdata\applogs\
       logretentiondays: 50
     accessToken:
 

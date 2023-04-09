@@ -25,5 +25,5 @@ public interface IActivityDeploy {
      */
     void updateActivity(ActivityConfigReq activityConfigReq);
 
-    List<ActivityVO> scanToDoActivityList(long l);
+    List<ActivityVO> scanToDoActivityList(long id);
 }
