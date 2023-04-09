@@ -104,15 +104,16 @@ mini-db-router:
 xxl:
   job:
     admin:
-      addresses: http://127.0.0.1:8000/xxl-job-admin/
+      addresses: http://127.0.0.1:8085/xxl-job-admin
     executor:
       address:
       appname: lottery-job
       ip:
       port: 9998
-      logpath: D:\AllExploreDownloads\Chrome\xxl-job-2.3.0\xxl-job-2.3.0\xxl-job-log
+      logpath: /Users/fuzhengwei/itstack/data/applogs/xxl-job/jobhandler
       logretentiondays: 50
     accessToken:
+
 
 
 #dubbo:
