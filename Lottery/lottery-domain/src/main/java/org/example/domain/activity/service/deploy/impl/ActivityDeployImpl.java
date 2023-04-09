@@ -3,6 +3,7 @@ package org.example.domain.activity.service.deploy.impl;
 import com.alibaba.fastjson.JSON;
 import org.example.domain.activity.model.aggregates.ActivityConfigRich;
 import org.example.domain.activity.model.req.ActivityConfigReq;
+import org.example.domain.activity.model.vo.ActivityVO;
 import org.example.domain.activity.repository.IActivityRepository;
 import org.example.domain.activity.service.deploy.IActivityDeploy;
 import org.slf4j.Logger;
@@ -14,6 +15,7 @@ import org.yaml.snakeyaml.constructor.DuplicateKeyException;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 
 /**
@@ -60,5 +62,10 @@ public class ActivityDeployImpl implements IActivityDeploy {
     @Override
     public void updateActivity(ActivityConfigReq activityConfigReq) {
 
+    }
+
+    @Override
+    public List<ActivityVO> scanToDoActivityList(long id) {
+        return activityRepository.scanToDoActivityList(id);
     }
 }

@@ -52,9 +52,11 @@
           <element id="archive" name="application-1.0-SNAPSHOT.jar">
             <element id="module-output" name="application" />
           </element>
+          <element id="library" level="project" name="Maven: com.xuxueli:xxl-job-core:2.3.1" />
+          <element id="library" level="project" name="Maven: org.codehaus.groovy:groovy:2.5.13" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.30" />
           <element id="library" level="project" name="Maven: com.mysql:mysql-connector-j:8.0.31" />
           <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.19.4" />
-          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.30" />
           <element id="library" level="project" name="Maven: org.springframework:spring-core:5.2.10.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.2.10.RELEASE" />
           <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.58" />

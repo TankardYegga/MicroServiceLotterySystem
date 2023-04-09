@@ -1,6 +1,9 @@
 package org.example.domain.activity.service.deploy;
 
 import org.example.domain.activity.model.req.ActivityConfigReq;
+import org.example.domain.activity.model.vo.ActivityVO;
+
+import java.util.List;
 
 /**
  * @description:
@@ -22,4 +25,5 @@ public interface IActivityDeploy {
      */
     void updateActivity(ActivityConfigReq activityConfigReq);
 
+    List<ActivityVO> scanToDoActivityList(long id);
 }

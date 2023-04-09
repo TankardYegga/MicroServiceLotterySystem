@@ -119,4 +119,9 @@ public class ActivityRepository implements IActivityRepository {
     public int subtractionActivityStock(Long activityId) {
         return activityDao.subtractionActivityStock(activityId);
     }
+
+    @Override
+    public List<ActivityVO> scanToDoActivityList(long id) {
+        return activityDao.scanToDoActivityList(id);
+    }
 }

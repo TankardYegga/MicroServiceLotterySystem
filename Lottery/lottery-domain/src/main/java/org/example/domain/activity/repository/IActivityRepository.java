@@ -62,4 +62,6 @@ public interface IActivityRepository {
      * @return 扣减结果
      */
     int subtractionActivityStock(Long activityId);
+
+    List<ActivityVO> scanToDoActivityList(long id);
 }

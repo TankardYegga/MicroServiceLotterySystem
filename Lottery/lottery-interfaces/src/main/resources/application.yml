@@ -78,20 +78,70 @@ mini-db-router:
         password: 123
 
 
-# dubbo
+## dubbo
+#dubbo:
+#  application:
+#    name: lottery
+#    version: 1.0.0
+#  registry:
+#    address: N/A #直连模式
+##    address: multicast://10.192.24.196:1234
+##     address: multicast://127.0.0.1:1234??unicast=false
+#
+#  protocol:
+#    name: dubbo
+#    port: 20889
+##    host: 10.192.24.196
+#  scan:
+#    base-packages: org.example.rpc
+
+
+# xxl-job
+# 官网：https://github.com/xuxueli/xxl-job/
+# 地址：http://localhost:7397/xxl-job-admin 【需要先启动 xxl-job】
+# 账号：admin
+# 密码：123456
+xxl:
+  job:
+    admin:
+      addresses: http://127.0.0.1:8085/xxl-job-admin
+    executor:
+      address:
+      appname: lottery-job
+      ip:
+      port: 9998
+      logpath: D:\appdata\applogs\
+      logretentiondays: 50
+    accessToken:
+
+
+
+#dubbo:
+#  application:
+#    name: Lottery
+#    version: 1.0.0
+#    parameters:
+#      unicast: false
+#  registry:
+#    address: multicast://10.192.39.194:1234
+#  protocol:
+#    name: dubbo
+#    port: 20880
+#  scan:
+#    base-packages: org.example.rpc
+
 dubbo:
   application:
-    name: lottery
+    name: Lottery
     version: 1.0.0
   registry:
-    address: N/A #直连模式
-#    address: multicast://10.192.24.196:1234
-#     address: multicast://127.0.0.1:1234??unicast=false
-
+    address: N/A
   protocol:
     name: dubbo
-    port: 20889
-#    host: 10.192.24.196
+    port: 20880
   scan:
     base-packages: org.example.rpc
 
+
+logging:
+  config: classpath:logback.xml

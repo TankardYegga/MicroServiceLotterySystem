@@ -18,7 +18,7 @@ import java.util.Optional;
  * @date: 3/7/2023
  * @Copyright： levinforward@163.com
  */
-@Component
+//@Component
 public class KafkaConsumer {
 
     private Logger logger = LoggerFactory.getLogger(KafkaConsumer.class);

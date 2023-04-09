@@ -1,7 +1,10 @@
 package org.example.infrastructure.dao;
 
+import org.example.domain.activity.model.vo.ActivityVO;
 import org.example.domain.activity.model.vo.AlterStateVO;
 import org.example.infrastructure.po.Activity;
+
+import java.util.List;
 
 
 /**
@@ -17,4 +20,6 @@ public interface IActivityDao {
     int alterActivityState(AlterStateVO alterStateVO);
 
     int subtractionActivityStock(Long activityId);
+
+    List<ActivityVO> scanToDoActivityList(long id);
 }
